@@ -3,10 +3,21 @@ const express = require("express");
 const mongoose = require('mongoose');
 const app = express();
 require("dotenv").config()
+var CryptoJS = require("crypto-js");
 //Static folders =>
-
+ 
+// Encrypt
+// var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();
+//  console.log(ciphertext);
+// Decrypt
+// var bytes  = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
+// var originalText = bytes.toString(CryptoJS.enc.Utf8);
+ 
+// console.log(originalText); // 'my message'
 app.use(express.static('./public'));
 app.use("/css",express.static(__dirname + "public/css"))
+app.use("/fonts",express.static(__dirname + "public/fonts"))
+app.use("/icons",express.static(__dirname + "public/icons"))
 //ejs Setup =>
 
 app.set("views","./views")
@@ -17,7 +28,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 //routes =>
 
-app.use("/api",require("./routes/api/api.js"));
 app.use("/",require("./routes/index.js"));
 
 //db config  =>
