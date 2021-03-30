@@ -1,0 +1,18 @@
+{
+    "background_color": "#ffffff",
+    "description":"Save.it is an free online notepad with password, where you can securely save your Text on the web.",
+    "display": "fullscreen",
+ 
+    "icons": [
+        {
+            "src": "/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "name": "save.it",
+    "short_name": "save.it",
+    "theme_color": "#ffffff",
+    "start_url": "/",
+    "orientation": "portrait"
+}
