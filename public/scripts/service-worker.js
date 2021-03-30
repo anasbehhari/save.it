@@ -1,6 +1,6 @@
-self.addEventListener("install", evt =>{
-    console.log("set !");
-})
-self.addEventListener("activate", evt => {
-    console.log("activated");
-})
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-sw.js');
+
+workbox.routing.registerRoute(
+    ({req}) => req.destination === 'image' ,
+    new workbox.strategies.NetworkFirst()
+)
