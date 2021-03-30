@@ -172,7 +172,9 @@
   </footer>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register("/scripts/service-worker.js");
+      navigator.serviceWorker.register("/scripts/service-worker.js")
+      .then(console.log("service worker registerd !"))
+      .catch(err => console.log(err))
     }
   </script>
 
