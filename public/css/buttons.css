@@ -1,0 +1,421 @@
+button.btnlz {
+  position: relative;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  padding: .7rem 1.2rem;
+  border-radius: 3px;
+  gap: .3rem;
+  font-family: 'Open Sans';
+  -webkit-transition: .1s transform, .2s box-shadow, .2s background-color;
+  transition: .1s transform, .2s box-shadow, .2s background-color;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+}
+
+button.btnlz a {
+  text-decoration: none;
+}
+
+button.btnlz.danger {
+  background-color: #e74c3c;
+}
+
+button.btnlz.danger:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(231, 76, 60, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(231, 76, 60, 0.3);
+}
+
+button.btnlz.danger.outlined {
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+}
+
+button.btnlz.danger.outlined:hover {
+  background-color: #e74c3c;
+}
+
+button.btnlz.success {
+  background-color: #2ecc71;
+}
+
+button.btnlz.success:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(46, 204, 113, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(46, 204, 113, 0.3);
+}
+
+button.btnlz.success.outlined {
+  border: 2px solid #2ecc71;
+  color: #2ecc71;
+}
+
+button.btnlz.success.outlined:hover {
+  background-color: #2ecc71;
+}
+
+button.btnlz.warning {
+  background-color: #f1c40f;
+}
+
+button.btnlz.warning:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(241, 196, 15, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(241, 196, 15, 0.3);
+}
+
+button.btnlz.warning.outlined {
+  border: 2px solid #f1c40f;
+  color: #f1c40f;
+}
+
+button.btnlz.warning.outlined:hover {
+  background-color: #f1c40f;
+}
+
+button.btnlz.primary {
+  background-color: #30336b;
+}
+
+button.btnlz.primary:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(48, 51, 107, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(48, 51, 107, 0.3);
+}
+
+button.btnlz.primary.outlined {
+  border: 2px solid #30336b;
+  color: #30336b;
+}
+
+button.btnlz.primary.outlined:hover {
+  background-color: #30336b;
+}
+
+button.btnlz.secondry {
+  background-color: #747d8c;
+}
+
+button.btnlz.secondry:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(116, 125, 140, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(116, 125, 140, 0.3);
+}
+
+button.btnlz.secondry.outlined {
+  border: 2px solid #747d8c;
+  color: #747d8c;
+}
+
+button.btnlz.secondry.outlined:hover {
+  background-color: #747d8c;
+}
+
+button.btnlz.info {
+  background-color: #409efb;
+}
+
+button.btnlz.info:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(64, 158, 251, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(64, 158, 251, 0.3);
+}
+
+button.btnlz.info.outlined {
+  border: 2px solid #409efb;
+  color: #409efb;
+}
+
+button.btnlz.info.outlined:hover {
+  background-color: #409efb;
+}
+
+button.btnlz.dragon {
+  background-color: #ff9f43;
+}
+
+button.btnlz.dragon:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 159, 67, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(255, 159, 67, 0.3);
+}
+
+button.btnlz.dragon.outlined {
+  border: 2px solid #ff9f43;
+  color: #ff9f43;
+}
+
+button.btnlz.dragon.outlined:hover {
+  background-color: #ff9f43;
+}
+
+button.btnlz.marineblue {
+  background-color: #0652dd;
+}
+
+button.btnlz.marineblue:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(6, 82, 221, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(6, 82, 221, 0.3);
+}
+
+button.btnlz.marineblue.outlined {
+  border: 2px solid #0652dd;
+  color: #0652dd;
+}
+
+button.btnlz.marineblue.outlined:hover {
+  background-color: #0652dd;
+}
+
+button.btnlz.hrpink {
+  background-color: #ff4f6b;
+}
+
+button.btnlz.hrpink:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 79, 107, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(255, 79, 107, 0.3);
+}
+
+button.btnlz.hrpink.outlined {
+  border: 2px solid #ff4f6b;
+  color: #ff4f6b;
+}
+
+button.btnlz.hrpink.outlined:hover {
+  background-color: #ff4f6b;
+}
+
+button.btnlz.white {
+  background-color: #fff;
+}
+
+button.btnlz.white:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 255, 255, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(255, 255, 255, 0.3);
+}
+
+button.btnlz.white.outlined {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+button.btnlz.white.outlined:hover {
+  background-color: #fff;
+}
+
+button.btnlz.darkGr {
+  background-color: #333;
+}
+
+button.btnlz.darkGr:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(51, 51, 51, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(51, 51, 51, 0.3);
+}
+
+button.btnlz.darkGr.outlined {
+  border: 2px solid #333;
+  color: #333;
+}
+
+button.btnlz.darkGr.outlined:hover {
+  background-color: #333;
+}
+
+button.btnlz.grey-3 {
+  background-color: #f2f2f2;
+}
+
+button.btnlz.grey-3:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(242, 242, 242, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(242, 242, 242, 0.3);
+}
+
+button.btnlz.grey-3.outlined {
+  border: 2px solid #f2f2f2;
+  color: #f2f2f2;
+}
+
+button.btnlz.grey-3.outlined:hover {
+  background-color: #f2f2f2;
+}
+
+button.btnlz.grey-5 {
+  background-color: #6b7280;
+}
+
+button.btnlz.grey-5:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(107, 114, 128, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(107, 114, 128, 0.3);
+}
+
+button.btnlz.grey-5.outlined {
+  border: 2px solid #6b7280;
+  color: #6b7280;
+}
+
+button.btnlz.grey-5.outlined:hover {
+  background-color: #6b7280;
+}
+
+button.btnlz.grey-4 {
+  background-color: #e3e7ed;
+}
+
+button.btnlz.grey-4:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(227, 231, 237, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(227, 231, 237, 0.3);
+}
+
+button.btnlz.grey-4.outlined {
+  border: 2px solid #e3e7ed;
+  color: #e3e7ed;
+}
+
+button.btnlz.grey-4.outlined:hover {
+  background-color: #e3e7ed;
+}
+
+button.btnlz.facebook {
+  background-color: #3b5998;
+}
+
+button.btnlz.facebook:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(59, 89, 152, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(59, 89, 152, 0.3);
+}
+
+button.btnlz.facebook.outlined {
+  border: 2px solid #3b5998;
+  color: #3b5998;
+}
+
+button.btnlz.facebook.outlined:hover {
+  background-color: #3b5998;
+}
+
+button.btnlz.twitter {
+  background-color: #1da1f2;
+}
+
+button.btnlz.twitter:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(29, 161, 242, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(29, 161, 242, 0.3);
+}
+
+button.btnlz.twitter.outlined {
+  border: 2px solid #1da1f2;
+  color: #1da1f2;
+}
+
+button.btnlz.twitter.outlined:hover {
+  background-color: #1da1f2;
+}
+
+button.btnlz.youtube {
+  background-color: #ff0000;
+}
+
+button.btnlz.youtube:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 0, 0, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(255, 0, 0, 0.3);
+}
+
+button.btnlz.youtube.outlined {
+  border: 2px solid #ff0000;
+  color: #ff0000;
+}
+
+button.btnlz.youtube.outlined:hover {
+  background-color: #ff0000;
+}
+
+button.btnlz.github {
+  background-color: #24292e;
+}
+
+button.btnlz.github:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(36, 41, 46, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(36, 41, 46, 0.3);
+}
+
+button.btnlz.github.outlined {
+  border: 2px solid #24292e;
+  color: #24292e;
+}
+
+button.btnlz.github.outlined:hover {
+  background-color: #24292e;
+}
+
+button.btnlz.whatsapp {
+  background-color: #25d366;
+}
+
+button.btnlz.whatsapp:hover {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(37, 211, 102, 0.3);
+          box-shadow: 0px 5px 15px 0px rgba(37, 211, 102, 0.3);
+}
+
+button.btnlz.whatsapp.outlined {
+  border: 2px solid #25d366;
+  color: #25d366;
+}
+
+button.btnlz.whatsapp.outlined:hover {
+  background-color: #25d366;
+}
+
+button.btnlz.outlined {
+  padding: 0.7rem calc(1.2rem - 2px);
+  background-color: transparent;
+}
+
+button.btnlz.outlined:hover {
+  color: #fff;
+}
+
+button.btnlz.rounded {
+  border-radius: 30px;
+}
+
+button.btnlz::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  content: "";
+  left: 0;
+  top: 0;
+  opacity: 0;
+  -webkit-transition: .4s opacity;
+  transition: .4s opacity;
+}
+
+button.btnlz:active {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+button.btnlz:active::before {
+  opacity: .2;
+}
+
+button.btnlz.btni {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  button {
+    cursor: default !important;
+  }
+}
+/*# sourceMappingURL=buttons.min.css.map */

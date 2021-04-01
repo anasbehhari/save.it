@@ -99,7 +99,7 @@ body header div.container-section {
   margin-top: 8rem;
 }
 
-body header div.container-section div.con-input {
+body header div.container-section form.con-input {
   background-color: #f5f3f3;
   width: calc(44rem - 1.4rem);
   padding: 0.5rem 0.7rem;
@@ -112,7 +112,7 @@ body header div.container-section div.con-input {
           align-items: center;
 }
 
-body header div.container-section div.con-input span {
+body header div.container-section form.con-input span {
   font-style: italic;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -120,12 +120,12 @@ body header div.container-section div.con-input span {
           user-select: none;
 }
 
-body header div.container-section div.con-input span b {
+body header div.container-section form.con-input span b {
   font-style: normal !important;
   position: relative;
 }
 
-body header div.container-section div.con-input input {
+body header div.container-section form.con-input input {
   width: calc(100% - 14.4rem);
   border: none;
   background-color: inherit;
@@ -136,22 +136,22 @@ body header div.container-section div.con-input input {
   font-weight: bold;
 }
 
-body header div.container-section div.con-input input::-webkit-input-placeholder {
+body header div.container-section form.con-input input::-webkit-input-placeholder {
   font-style: italic;
   font-size: 0.9rem;
 }
 
-body header div.container-section div.con-input input:-ms-input-placeholder {
+body header div.container-section form.con-input input:-ms-input-placeholder {
   font-style: italic;
   font-size: 0.9rem;
 }
 
-body header div.container-section div.con-input input::-ms-input-placeholder {
+body header div.container-section form.con-input input::-ms-input-placeholder {
   font-style: italic;
   font-size: 0.9rem;
 }
 
-body header div.container-section div.con-input input::placeholder {
+body header div.container-section form.con-input input::placeholder {
   font-style: italic;
   font-size: 0.9rem;
 }
@@ -318,6 +318,53 @@ body section div#support-us div.container .tp.monthly button {
   font-size: 0.95rem;
 }
 
+body section .inputs {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  max-width: 40rem;
+}
+
+body section .inputs form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+  font-family: "Open Sans";
+}
+
+body section .inputs form p {
+  text-align: center;
+}
+
+body section .inputs form * {
+  margin-bottom: 1rem;
+}
+
+body section .inputs form input {
+  padding: .5rem;
+  font-size: .9rem;
+  outline-color: inherit;
+}
+
+body section .inputs form textarea {
+  padding: .5rem;
+  max-width: 39rem !important;
+  outline-color: inherit;
+}
+
 body footer {
   position: relative;
   -webkit-box-align: center;
@@ -325,7 +372,7 @@ body footer {
           align-items: center;
   font-family: "Open Sans";
   font-size: 0.9rem;
-  margin: 15rem 0 0 0;
+  margin: 8rem 0 0 0;
   padding: 1rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -415,14 +462,14 @@ body footer .con-2 svg {
     font-size: 0.9rem !important;
     margin-top: 5rem !important;
   }
-  header div.container-section div.con-input {
+  header div.container-section form.con-input {
     width: calc(100% - 1rem) !important;
     padding: 0.3rem 0.3rem 0.3rem 0.7rem !important;
   }
-  header div.container-section div.con-input input {
+  header div.container-section form.con-input input {
     width: calc(100% - 13rem) !important;
   }
-  header div.container-section div.con-input button {
+  header div.container-section form.con-input button {
     font-size: 0.85rem;
   }
   section {
@@ -444,6 +491,16 @@ body footer .con-2 svg {
   }
   section div#support-us .tp:first-of-type {
     margin-top: 2rem !important;
+  }
+  section .inputs {
+    width: calc(100%) !important;
+  }
+  section .inputs form {
+    margin-top: 0 !important;
+  }
+  section .inputs form p {
+    text-align: left !important;
+    margin-top: 0 !important;
   }
   footer {
     -webkit-box-orient: vertical;

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/ini.css" />
+    <link rel="stylesheet" href="/css/buttons.css" />
+    <title>Save.it | The safest site on the web for storing your text</title>
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <div class="settings darkGr-bg">
+      <div class="header-project-settings">
+        <h3>Project Settings <i class="icn-cog"></i></h3>
+        <div class="close" id="close">
+          <i class="icn-close"></i>
+        </div>
+      </div>
+
+      <div class="options">
+        <div class="option">
+          <h4>
+            <label> Project Title </label>
+            <i class="icn-edit"></i>
+
+          </h4>
+          <input type="text" placeholder="untitled" id="title-prj" />
+        </div>
+        <div class="option">
+          <h4>
+            <label> Project Description </label>
+            <i class="icn-edit"></i>
+          </h4>
+          <textarea
+            name=""
+            id="Description-prj"
+            cols="30"
+            rows="10"
+            placeholder="Description"
+          ></textarea>
+        </div>
+        <div class="option">
+            <h4>
+              <label>Change password </label>
+              <i class="icn-lock"></i>
+            </h4>
+            <input type="password" placeholder="Type current password" id="repo-change-current-prj" />
+            <input type="password" placeholder="Type new password" id="repo-change-new-prj" />
+          </div>
+        <div class="option">
+          <h4>
+            <label>Edit repo ~</label>
+            <i class="icn-edit"></i>
+          </h4>
+          <input type="text" placeholder="/anasbehhari" id="repo-edit-prj" />
+          <b class="success"><i class="icn-check"></i>Available</b>
+        </div>
+        <div class="option">
+          <h4 class="danger">
+            <label> Delete repo </label>
+            <i class="icn-delete"></i>
+          </h4>
+          <input type="text" placeholder="" id="repo-delete-prj" />
+          <small
+            >Please type <span>anasbehhari/lionzcss-doc</span> and hit <span>Enter</span> to confirm
+          </small>
+        </div>
+      </div>
+    </div>
+    <main>
+      <nav class="darkGr-bg">
+        <div class="logo-section"><%- include('components/logo.ejs') %></div>
+        <div class="header-project-section">
+          <span>
+            <b>
+              <div class="container-edit">
+                <input class="darkGr-bg" type="text" />
+                <span class="title">Untitled</span>
+              </div>
+              <i id="edit-title" class="icn-edit"></i>
+            </b>
+            <small>https://save.it/anbehhari</small>
+          </span>
+        </div>
+        <div class="controls">
+          <button class="btnlz outlined white">
+            <svg viewBox="0 0 100 100">
+              <path
+                d="M84.187 44.046c.084-.753.114-1.52.114-2.289 0-13.402-10.814-24.257-24.154-24.257-10.354 0-19.161 6.551-22.599 15.754-2.274-2.508-5.521-4.111-9.166-4.111-6.872 0-12.439 5.59-12.439 12.493 0 .816.084 1.606.239 2.38C7.014 45.534 0 53.472 0 63.095 0 73.824 8.648 82.5 19.323 82.5h61.354C91.351 82.5 100 73.824 100 63.095c0-9.505-6.823-17.38-15.813-19.049z"
+              ></path>
+            </svg>
+            Save
+          </button>
+          <button class="btnlz outlined white" id="settings">
+            <i class="icn-cog"></i>
+          </button>
+        </div>
+      </nav>
+      
+    </main>
+  </body>
+  <script src="/scripts/ui-site.js"></script>
+</html>

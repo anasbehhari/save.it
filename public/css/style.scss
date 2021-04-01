@@ -3,16 +3,19 @@ body {
   padding: 0;
   box-sizing: border-box;
   width: 100%;
+
   header {
     position: relative;
     width: 100%;
     height: 35rem;
+
     div.video-container {
       position: absolute;
       z-index: 1;
       width: 100%;
       height: 100%;
       top: 0;
+
       &::before {
         position: absolute;
         content: "";
@@ -20,12 +23,14 @@ body {
         width: 100%;
         height: 100%;
       }
+
       video {
         object-fit: cover;
         width: 100%;
         height: 100%;
       }
     }
+
     nav {
       position: relative;
       z-index: 2;
@@ -35,8 +40,10 @@ body {
       ul {
         margin-right: 2rem;
         list-style: none;
+
         li {
           color: #fff;
+
           a {
             color: inherit;
             text-decoration: none;
@@ -46,8 +53,10 @@ body {
             i {
               margin-right: 0.5rem;
             }
+
             &:hover {
               text-decoration: underline;
+
               &.icon {
                 text-decoration: none;
               }
@@ -55,6 +64,7 @@ body {
           }
         }
       }
+
       div.logo-section {
         svg {
           fill: #fff;
@@ -64,6 +74,7 @@ body {
         }
       }
     }
+
     div.container-section {
       position: relative;
       color: #fff;
@@ -74,7 +85,7 @@ body {
       left: 50%;
       transform: translateX(-50%);
       margin-top: 8rem;
-      div.con-input {
+      form.con-input {
         background-color: rgb(245, 243, 243);
         width: calc(44rem - 1.4rem);
         padding: 0.5rem 0.7rem;
@@ -85,11 +96,13 @@ body {
         span {
           font-style: italic;
           user-select: none;
+
           b {
             font-style: normal !important;
             position: relative;
           }
         }
+
         input {
           width: calc(100% - 14.4rem);
           border: none;
@@ -99,6 +112,7 @@ body {
           font-family: "Open Sans";
           font-size: 1rem;
           font-weight: bold;
+
           &::placeholder {
             font-style: italic;
             font-size: 0.9rem;
@@ -107,6 +121,7 @@ body {
       }
     }
   }
+
   section {
     position: relative;
     left: 50%;
@@ -114,22 +129,27 @@ body {
     transform: translateX(-50%);
     margin-top: 5rem;
     font-family: "Open Sans";
+
     h3 {
       text-align: center;
     }
+
     p {
       font-size: 0.9rem;
       line-height: 1.7rem;
     }
+
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
       font-size: 0.9rem;
+
       li {
         display: flex;
         align-items: center;
         margin-bottom: 1rem;
+
         i {
           margin-right: 1rem;
         }
@@ -149,12 +169,14 @@ body {
         align-items: center;
         justify-content: center;
         grid-gap: 2rem;
+
         .tp {
           height: fit-content;
           display: flex;
           flex-direction: column;
           align-items: center;
           margin: 2rem 1rem;
+
           h3 {
             margin: 0;
             font-family: "Open Sans";
@@ -222,30 +244,72 @@ body {
         }
       }
     }
+
+    .inputs {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 40rem;
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2rem;
+        font-family: "Open Sans";
+
+        p {
+          text-align: center;
+        }
+
+        * {
+          margin-bottom: 1rem;
+        }
+
+        input {
+          padding: .5rem;
+          font-size: .9rem;
+          outline-color: inherit;
+        }
+
+        textarea {
+          padding: .5rem;
+          max-width: 39rem !important;
+          outline-color: inherit;
+
+        }
+      }
+    }
   }
+
   footer {
     position: relative;
     align-items: center;
     font-family: "Open Sans";
     font-size: 0.9rem;
-    margin: 15rem 0 0 0;
+    margin: 8rem 0 0 0;
     padding: 1rem 0;
     display: flex;
     justify-content: center;
     color: #fff;
+
     .mid {
       max-width: 80rem;
+
       p {
         font-family: "Open Sans";
         font-size: 0.9rem;
         text-align: center;
         line-height: 1.6rem;
+
         a {
           color: #fff;
           font-weight: bold;
         }
       }
     }
+
     .con-1 {
       display: flex;
       align-items: center;
@@ -288,33 +352,41 @@ body {
     }
   }
 }
+
 @media (max-width: 50rem) {
   header {
     height: 25rem !important;
+
     div.logo-section {
       svg {
         margin-left: 0.6rem !important;
       }
     }
+
     ul {
       margin-right: 0.5rem !important;
     }
+
     div.container-section {
       width: 95% !important;
       font-size: 0.9rem !important;
       margin-top: 5rem !important;
-      div.con-input {
+
+      form.con-input {
         width: calc(100% - 1rem) !important;
         padding: 0.3rem 0.3rem 0.3rem 0.7rem !important;
+
         input {
           width: calc(100% - 13rem) !important;
         }
+
         button {
           font-size: 0.85rem;
         }
       }
     }
   }
+
   section {
     margin: 2rem 0rem 1rem 0rem !important;
     width: calc(100% - 1rem) !important;
@@ -322,26 +394,46 @@ body {
     p {
       width: 100% !important;
     }
+
     h3 {
       text-align: left !important;
     }
+
     div#support-us {
       margin-top: 0 !important;
       margin-bottom: 2rem !important;
+
       .tp {
         margin: 1rem 0 !important;
+
         &:first-of-type {
           margin-top: 2rem !important;
         }
       }
     }
+
+    .inputs {
+      width: calc(100%) !important;
+
+      form {
+        margin-top: 0 !important;
+
+        p {
+          text-align: left !important;
+          margin-top: 0 !important;
+        }
+      }
+    }
   }
+
   footer {
     flex-direction: column;
     margin-top: 4rem !important;
+
     .mid {
       width: calc(100% - 1rem) !important;
       margin-left: 1rem !important;
+
       p {
         text-align: left !important;
       }
