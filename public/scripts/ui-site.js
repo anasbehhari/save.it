@@ -10,12 +10,11 @@ const main = document.querySelector("main");
 
 const ChangeTitle = () => {
   containerEdit.classList.remove("sh-inp");
-  input.value = "";
+  containerEdit.querySelector("span.title").textContent = input.value;
 };
 /**/
 editTitle.onclick = () => {
   containerEdit.classList.add("sh-inp");
-  input.value = containerEdit.querySelector("span.title").textContent;
   input.focus();
   input.onblur = ChangeTitle;
   input.onkeyup = (e) => {
@@ -26,10 +25,10 @@ editTitle.onclick = () => {
 };
 
 settings_btn.onclick = () => {
-  main.classList.toggle("filter");
+  main.classList.toggle("br-50");
   settings.classList.toggle("active");
 };
 close_settings.onclick = () => {
-  main.classList.toggle("filter");
+  main.classList.toggle("br-50");
   settings.classList.toggle("active");
 };

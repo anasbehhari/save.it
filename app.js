@@ -20,6 +20,7 @@ app.use("/fonts",express.static(__dirname + "public/fonts"))
 app.use("/icons",express.static(__dirname + "public/icons"))
 app.use("/scripts",express.static(__dirname + "public/scripts"))
 
+
 //ejs Setup =>
 
 app.set("views","./views")

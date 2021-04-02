@@ -23,7 +23,6 @@
           <h4>
             <label> Project Title </label>
             <i class="icn-edit"></i>
-
           </h4>
           <input type="text" placeholder="untitled" id="title-prj" />
         </div>
@@ -41,13 +40,21 @@
           ></textarea>
         </div>
         <div class="option">
-            <h4>
-              <label>Change password </label>
-              <i class="icn-lock"></i>
-            </h4>
-            <input type="password" placeholder="Type current password" id="repo-change-current-prj" />
-            <input type="password" placeholder="Type new password" id="repo-change-new-prj" />
-          </div>
+          <h4>
+            <label>Change password </label>
+            <i class="icn-lock"></i>
+          </h4>
+          <input
+            type="password"
+            placeholder="Type current password"
+            id="repo-change-current-prj"
+          />
+          <input
+            type="password"
+            placeholder="Type new password"
+            id="repo-change-new-prj"
+          />
+        </div>
         <div class="option">
           <h4>
             <label>Edit repo ~</label>
@@ -63,7 +70,8 @@
           </h4>
           <input type="text" placeholder="" id="repo-delete-prj" />
           <small
-            >Please type <span>anasbehhari/lionzcss-doc</span> and hit <span>Enter</span> to confirm
+            >Please type <span>anasbehhari/lionzcss-doc</span> and hit
+            <span>Enter</span> to confirm
           </small>
         </div>
       </div>
@@ -97,8 +105,28 @@
           </button>
         </div>
       </nav>
-      
+
+      <section id="text-editor">
+        <div id="Editor">
+          <div id="toolbar-container"></div>
+          <div id="editor">
+            <blockquote><p>Welcome ! we're Ready to S<strong>ave.it !&nbsp;</strong></p></blockquote>          </div>
+        </div>
+      </section>
     </main>
   </body>
   <script src="/scripts/ui-site.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/decoupled-document/ckeditor.js"></script>
+
+  <script>
+    DecoupledEditor.create(document.querySelector("#editor"))
+      .then((editor) => {
+        const toolbarContainer = document.querySelector("#toolbar-container");
+
+        toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  </script>
 </html>
