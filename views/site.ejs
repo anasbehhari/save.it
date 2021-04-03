@@ -31,9 +31,17 @@
     <title>Save.it | Welcome we're Ready to Save it !!!! 😀</title>
   </head>
   <body>
-    <a href="">
-      <%- include('components/logo.ejs') %>
-    </a>
+    <%- include('components/loader.ejs') %>
+    <div class="popup-password">
+      <h3>Password Please</h3>
+      <p>
+        <i class="icn-lock"></i> This repo is taken ! <br />
+        If it's yours enter the password, or you can try using
+        <a href="/">different site</a>.
+      </p>
+      <input type="password" id="password-check">
+    </div>
+   <% if (typeof Notverified =="undefiend" || typeof project !="undefined") { %>
     <div class="settings darkGr-bg">
       <div class="header-project-settings">
         <h3>Project Settings <i class="icn-cog"></i></h3>
@@ -47,11 +55,11 @@
             <label> Project Title </label>
             <i class="icn-edit"></i>
           </h4>
-          <input type="text" placeholder="untitled" id="title-prj" />
+          <input type="text" placeholder="untitled" id="title-prj" value="<%= project.Project_title%>" />
         </div>
         <div class="option">
           <h4>
-            <label> Project Description </label>
+            <label>Project Description</label>
             <i class="icn-edit"></i>
           </h4>
           <textarea
@@ -59,8 +67,20 @@
             id="Description-prj"
             cols="30"
             rows="10"
-            placeholder="Description"
+            value="<%= project.Project_Description %>"
           ></textarea>
+        </div>
+        <div class="option">
+          <h4>
+            <label>Your name</label>
+            <i class="icn-user"></i>
+          </h4>
+          <input
+            type="password"
+            placeholder="Type your name"
+            id="yourname-prj"
+            value="<% typeof project !="undefined" ? project.Project_owner : "" %>"
+          />
         </div>
         <div class="option">
           <h4>
@@ -83,7 +103,7 @@
             <label>Edit repo ~</label>
             <i class="icn-edit"></i>
           </h4>
-          <input type="text" placeholder="/anasbehhari" id="repo-edit-prj" />
+          <input type="text" placeholder="/<%= rep%>" id="repo-edit-prj" />
           <b class="success"><i class="icn-check"></i>Available</b>
         </div>
         <div class="option">
@@ -93,15 +113,18 @@
           </h4>
           <input type="text" placeholder="" id="repo-delete-prj" />
           <small
-            >Please type <span>anasbehhari/lionzcss-doc</span> and hit
+            >Please type <span>save.it/<%= rep%></span> and hit
             <span>Enter</span> to confirm
           </small>
         </div>
       </form>
     </div>
+   <% } %>
     <main>
       <nav class="darkGr-bg">
-        <div class="logo-section"><%- include('components/logo.ejs') %></div>
+        <div class="logo-section">
+          <a href=""> <%- include('components/logo.ejs') %> </a>
+        </div>
         <div class="header-project-section">
           <span>
             <b>
@@ -133,13 +156,20 @@
         <div id="Editor">
           <div id="toolbar-container"></div>
           <div id="editor">
+            <% if (typeof project !="undefined") { %>
             <blockquote>
               <p>
                 Welcome ! we're Ready to <strong><u>Save.it !</u></strong>
               </p>
             </blockquote>
+            <ul>
+              <li>
+                Your Password by default is :
+                <b> <%= project.Project_password %> </b>
+              </li>
+            </ul>
 
-            <% if (typeof data !="undefined") { %> <%= data %> <% } %>
+            <% } %>
           </div>
         </div>
       </section>
@@ -147,5 +177,13 @@
   </body>
   <script src="/scripts/app.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/decoupled-document/ckeditor.js"></script>
+  <% if (typeof Notverified =="undefiend" || typeof project !="undefined") { %>
   <script src="/scripts/ui-site.js"></script>
+  <% } %>
+  <% if (typeof available !="undefined") { %>
+  <script src="/scripts/setRoute.js"></script>
+  <% } %>
+   <% if (typeof Notverified !="undefiend") { %>
+  <script src="/scripts/loginHandle.js"></script>
+  <% } %>
 </html>
