@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "lionzcss";
+  src: url("/fonts/lionzcss.woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 body {
   margin: 0;
   padding: 0;
