@@ -34,8 +34,6 @@ Router.post("/rep", (req, res) => {
     res.redirect("/")
   }
 });
-Router.get("/site/preview",(req,res)=>{
-  res.render("site")
-})
+
 
 module.exports = Router;

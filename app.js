@@ -19,6 +19,8 @@ app.use("/css",express.static(__dirname + "public/css"))
 app.use("/fonts",express.static(__dirname + "public/fonts"))
 app.use("/icons",express.static(__dirname + "public/icons"))
 app.use("/scripts",express.static(__dirname + "public/scripts"))
+app.use("/media",express.static(__dirname + "public/media"))
+
 
 
 //ejs Setup =>

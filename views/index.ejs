@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://lionzcss-api.herokuapp.com/api/css/ini" />
-  <link rel="stylesheet" href="https://lionzcss-api.herokuapp.com/api/css/buttons" />
+  <link rel="stylesheet" href="/css/ini.css" />
+  <link rel="stylesheet" href="/css/buttons.css" />
   <link rel="stylesheet" href="/css/style.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <%- include('components/loader.ejs') %>
   <header>
     <nav>
       <div class="logo-section">
@@ -185,14 +186,7 @@
     </div>
 
   </footer>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register("/scripts/service-worker.js")
-      .then(console.log("service worker registerd !"))
-      .catch(err => console.log(err))
-    }
-  </script>
-
+  <script src="/scripts/app.js"></script>
 </body>
 
 </html>

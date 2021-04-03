@@ -25,7 +25,7 @@ button.btnlz.danger {
 
 button.btnlz.danger:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(231, 76, 60, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(231, 76, 60, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(231, 76, 60, 0.3);
 }
 
 button.btnlz.danger.outlined {
@@ -43,7 +43,7 @@ button.btnlz.success {
 
 button.btnlz.success:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(46, 204, 113, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(46, 204, 113, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(46, 204, 113, 0.3);
 }
 
 button.btnlz.success.outlined {
@@ -61,7 +61,7 @@ button.btnlz.warning {
 
 button.btnlz.warning:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(241, 196, 15, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(241, 196, 15, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(241, 196, 15, 0.3);
 }
 
 button.btnlz.warning.outlined {
@@ -79,7 +79,7 @@ button.btnlz.primary {
 
 button.btnlz.primary:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(48, 51, 107, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(48, 51, 107, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(48, 51, 107, 0.3);
 }
 
 button.btnlz.primary.outlined {
@@ -97,7 +97,7 @@ button.btnlz.secondry {
 
 button.btnlz.secondry:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(116, 125, 140, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(116, 125, 140, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(116, 125, 140, 0.3);
 }
 
 button.btnlz.secondry.outlined {
@@ -115,7 +115,7 @@ button.btnlz.info {
 
 button.btnlz.info:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(64, 158, 251, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(64, 158, 251, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(64, 158, 251, 0.3);
 }
 
 button.btnlz.info.outlined {
@@ -133,7 +133,7 @@ button.btnlz.dragon {
 
 button.btnlz.dragon:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 159, 67, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(255, 159, 67, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(255, 159, 67, 0.3);
 }
 
 button.btnlz.dragon.outlined {
@@ -151,7 +151,7 @@ button.btnlz.marineblue {
 
 button.btnlz.marineblue:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(6, 82, 221, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(6, 82, 221, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(6, 82, 221, 0.3);
 }
 
 button.btnlz.marineblue.outlined {
@@ -169,7 +169,7 @@ button.btnlz.hrpink {
 
 button.btnlz.hrpink:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 79, 107, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(255, 79, 107, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(255, 79, 107, 0.3);
 }
 
 button.btnlz.hrpink.outlined {
@@ -187,7 +187,7 @@ button.btnlz.white {
 
 button.btnlz.white:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 255, 255, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(255, 255, 255, 0.3);
 }
 
 button.btnlz.white.outlined {
@@ -205,7 +205,7 @@ button.btnlz.darkGr {
 
 button.btnlz.darkGr:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(51, 51, 51, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(51, 51, 51, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(51, 51, 51, 0.3);
 }
 
 button.btnlz.darkGr.outlined {
@@ -223,7 +223,7 @@ button.btnlz.grey-3 {
 
 button.btnlz.grey-3:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(242, 242, 242, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(242, 242, 242, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(242, 242, 242, 0.3);
 }
 
 button.btnlz.grey-3.outlined {
@@ -241,7 +241,7 @@ button.btnlz.grey-5 {
 
 button.btnlz.grey-5:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(107, 114, 128, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(107, 114, 128, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(107, 114, 128, 0.3);
 }
 
 button.btnlz.grey-5.outlined {
@@ -259,7 +259,7 @@ button.btnlz.grey-4 {
 
 button.btnlz.grey-4:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(227, 231, 237, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(227, 231, 237, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(227, 231, 237, 0.3);
 }
 
 button.btnlz.grey-4.outlined {
@@ -277,7 +277,7 @@ button.btnlz.facebook {
 
 button.btnlz.facebook:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(59, 89, 152, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(59, 89, 152, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(59, 89, 152, 0.3);
 }
 
 button.btnlz.facebook.outlined {
@@ -295,7 +295,7 @@ button.btnlz.twitter {
 
 button.btnlz.twitter:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(29, 161, 242, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(29, 161, 242, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(29, 161, 242, 0.3);
 }
 
 button.btnlz.twitter.outlined {
@@ -313,7 +313,7 @@ button.btnlz.youtube {
 
 button.btnlz.youtube:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(255, 0, 0, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(255, 0, 0, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(255, 0, 0, 0.3);
 }
 
 button.btnlz.youtube.outlined {
@@ -331,7 +331,7 @@ button.btnlz.github {
 
 button.btnlz.github:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(36, 41, 46, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(36, 41, 46, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(36, 41, 46, 0.3);
 }
 
 button.btnlz.github.outlined {
@@ -349,7 +349,7 @@ button.btnlz.whatsapp {
 
 button.btnlz.whatsapp:hover {
   -webkit-box-shadow: 0px 5px 15px 0px rgba(37, 211, 102, 0.3);
-          box-shadow: 0px 5px 15px 0px rgba(37, 211, 102, 0.3);
+  box-shadow: 0px 5px 15px 0px rgba(37, 211, 102, 0.3);
 }
 
 button.btnlz.whatsapp.outlined {
@@ -389,7 +389,7 @@ button.btnlz::before {
 
 button.btnlz:active {
   -webkit-transform: scale(0.97);
-          transform: scale(0.97);
+  transform: scale(0.97);
 }
 
 button.btnlz:active::before {
@@ -404,13 +404,13 @@ button.btnlz.btni {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 @media (max-width: 768px) {
@@ -418,4 +418,3 @@ button.btnlz.btni {
     cursor: default !important;
   }
 }
-/*# sourceMappingURL=buttons.min.css.map */

@@ -15,6 +15,56 @@ body {
   overflow: hidden;
 }
 
+body .loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+  z-index: 100;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+body .loader svg {
+  width: 2em;
+  -webkit-animation: rot 1s linear infinite;
+          animation: rot 1s linear infinite;
+}
+
+body .loader.stop svg {
+  -webkit-animation: none;
+          animation: none;
+}
+
+body .loader.stop {
+  display: none;
+}
+
+@-webkit-keyframes rot {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rot {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 body div.settings {
   position: absolute;
   top: 50%;
@@ -107,7 +157,7 @@ body div.settings .header-project-settings .close {
   cursor: pointer;
 }
 
-body div.settings div.options {
+body div.settings form.options {
   position: relative;
   width: calc(100% - 1rem);
   display: -webkit-box;
@@ -119,7 +169,7 @@ body div.settings div.options {
           flex-direction: column;
 }
 
-body div.settings div.options .option {
+body div.settings form.options .option {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,7 +187,7 @@ body div.settings div.options .option {
   font-family: "Open Sans";
 }
 
-body div.settings div.options .option h4 {
+body div.settings form.options .option h4 {
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,11 +200,11 @@ body div.settings div.options .option h4 {
           justify-content: space-between;
 }
 
-body div.settings div.options .option h4 i {
+body div.settings form.options .option h4 i {
   font-size: 1rem;
 }
 
-body div.settings div.options .option input {
+body div.settings form.options .option input {
   margin-top: .7rem;
   padding: .8rem;
   font-size: 1rem;
@@ -164,7 +214,7 @@ body div.settings div.options .option input {
   outline-color: black;
 }
 
-body div.settings div.options .option textarea {
+body div.settings form.options .option textarea {
   margin-top: .7rem;
   border-radius: 4px;
   padding: .8rem;
@@ -177,22 +227,22 @@ body div.settings div.options .option textarea {
   max-height: 10rem;
 }
 
-body div.settings div.options .option b {
+body div.settings form.options .option b {
   margin-left: .2rem;
   font-size: .9rem;
   margin-top: .5rem;
 }
 
-body div.settings div.options .option b i {
+body div.settings form.options .option b i {
   margin-right: .1rem;
 }
 
-body div.settings div.options .option small {
+body div.settings form.options .option small {
   margin-top: .3rem;
   margin-left: .1rem;
 }
 
-body div.settings div.options .option small span {
+body div.settings form.options .option small span {
   font-weight: bold;
 }
 
@@ -378,14 +428,16 @@ body main section #Editor {
   height: 100% !important;
 }
 
-body main section #Editor .ck.ck-toolbar {
+body main section #Editor #toolbar-container .ck.ck-toolbar {
   border: none;
   border-bottom: 1px solid var(--ck-color-toolbar-border) !important;
   padding-top: 1rem;
+  max-width: 100%;
 }
 
 body main section #Editor #editor {
   height: calc(100% - 4.5rem) !important;
+  max-width: 100%;
 }
 
 body main section #Editor #editor.ck-focused {
@@ -414,7 +466,7 @@ body main section #Editor #editor.ck-focused {
     padding: 1rem .7rem !important;
     max-height: 90% !important;
   }
-  body .settings .options .option {
+  body .settings form.options .option {
     padding: 1rem .5rem !important;
     width: 100% !important;
   }
