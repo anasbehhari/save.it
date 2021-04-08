@@ -27,7 +27,7 @@ Router.post("/pid",(req,res) => {
     req.body.rep != "" &&
     req.body.rep != " " &&
     !req.body.rep.startsWith(" ") &&
-    req.body.rep.length > 1
+    req.body.rep.length > 3
   ) {
     const rep = req.body.rep;
     res.redirect(`/${rep}`);
@@ -39,8 +39,6 @@ Router.get("/:id",(req,res) => {
   Project.findOne({ Project_route: req.params.id })
     .then((data) => {
       if (data != null) {
-
-
         const Message = {
           Encrypted: false,
           Data: {
@@ -48,10 +46,12 @@ Router.get("/:id",(req,res) => {
           }
         }
         res.render("site",Message);
-
-
       }
-      else {
+      else if (req.params.id != null &&
+        req.params.id != "" &&
+        req.params.id != " " &&
+        !req.params.id.startsWith(" ") &&
+        req.params.id.length > 3) {
         var password = generator.generate({
           length: 10,
           numbers: true,
@@ -77,6 +77,9 @@ Router.get("/:id",(req,res) => {
         });
 
       }
+      else {
+        res.redirect("/");
+      }
     })
     .catch((err) => console.log(err));
 });
@@ -87,7 +90,7 @@ Router.post("/:id",(req,res) => {
       .then(data => {
         if (data != null) {
           bcrypt.compare(password,data.Project_password,function (err,result) {
-            if(err) {
+            if (err) {
               res.send({ status: "failure",message: "Error Handling request (wa walo a m3alem ) ! " })
             }
             if (result) {
@@ -113,6 +116,9 @@ Router.post("/:id",(req,res) => {
           res.redirect("/")
         }
       })
+  }
+  else {
+    res.redirect("/")
   }
 })
 

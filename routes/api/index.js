@@ -15,7 +15,6 @@ Router.post("/update",(req,res) => {
                 if (err) {
                     res.send({ updated: false,message: "something went wrong ! " })
                 }
-                console.log({ type,value,route,opid });
                 if (response.nModified == 1 && response.ok == 1) {
                     res.send({ updated: true,message: "Title updated sucessfully !" })
                 }
@@ -32,7 +31,6 @@ Router.post("/update",(req,res) => {
                     if (err) {
                         res.send({ updated: false,message: "something went wrong ! " })
                     }
-                    console.log({ type,value,route,opid });
                     if (response.nModified == 1 && response.ok == 1) {
                         res.send({ updated: true,message: "Email updated sucessfully !" })
                     }

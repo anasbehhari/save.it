@@ -4,7 +4,10 @@ if ("serviceWorker" in navigator) {
     .then(console.log("swrk registerd !"))
     .catch((err) => console.log(err));
 }
-
+function Decode(params) {
+  var parser = new DOMParser().parseFromString(params,"text/html");
+  return parser.documentElement.textContent
+}
 //loader
 var ldr = document.querySelector(".loader");
 window.onload = () => {
@@ -31,7 +34,7 @@ if (close_settings) {
   };
 }
 const vis = document.querySelector(".visibilty");
-if(vis){
+if (vis) {
   vis.onclick = () => {
 
     if (vis.textContent == "show") {
@@ -50,13 +53,32 @@ if(vis){
 
 //editor
 
+
 if (typeof DecoupledEditor != "undefined") {
   DecoupledEditor.create(document.querySelector("#editor"))
     .then((editor) => {
-      const toolbarContainer = document.querySelector("#toolbar-container");
-      toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+      fetch("./api/content",{
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ route,opid })
+      })
+        .then(res => res.json())
+        .then(Data => {
+          editor.setData(Data.data);
+          const toolbarContainer = document.querySelector("#toolbar-container");
+          toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+        })
+        .catch(err => {
+          console.error(error);
+        })
     })
     .catch((error) => {
       console.error(error);
     });
 }
+console.log();
+
+
+
