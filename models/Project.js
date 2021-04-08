@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+var uuid = require('uuid');
 const ProjectSchema = new mongoose.Schema({
     Project_route : {
         type:String,
@@ -9,9 +9,13 @@ const ProjectSchema = new mongoose.Schema({
         type:String,
         default:"Untitled"
     },
+    Project_email: {
+        type: String,
+        default: ""
+    },
     Project_Content : {
         type:String,
-        default : "<blockquote><p> Welcome ! we're Ready to <strong><u>Save.it !</u></strong> </p> </blockquote>"
+        default:""
     },
     Project_owner : {
         type:String,
@@ -28,6 +32,11 @@ const ProjectSchema = new mongoose.Schema({
     Project_Date : {
         type:Date,
         default : Date.now
+    }
+    ,
+    Project_key : {
+       type:String,
+        default: uuid.v4()
     }
 })
 

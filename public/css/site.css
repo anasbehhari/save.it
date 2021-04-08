@@ -15,6 +15,93 @@ body {
   overflow: hidden;
 }
 
+body div.message-alert {
+  position: absolute;
+  bottom: 1rem;
+  z-index: 9;
+  margin-left: 2rem;
+  color: #fff;
+  font-family: "Open Sans";
+  padding: 0.8rem 1rem;
+  -webkit-transition: 0.3s opacity, 0.6s -webkit-transform;
+  transition: 0.3s opacity, 0.6s -webkit-transform;
+  transition: 0.6s transform, 0.3s opacity;
+  transition: 0.6s transform, 0.3s opacity, 0.6s -webkit-transform;
+  -webkit-transform: translateX(-50rem);
+          transform: translateX(-50rem);
+  opacity: 0;
+  pointer-events: none;
+  font-size: 0.95rem;
+}
+
+body div.message-alert i {
+  margin-left: 0.5rem;
+}
+
+body div.message-alert.show {
+  -webkit-transform: translateX(0rem);
+          transform: translateX(0rem);
+  opacity: 1;
+}
+
+body form.popup {
+  position: absolute;
+  z-index: 9;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 1.5rem 1.3rem;
+  font-family: "Open Sans";
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body form.popup small {
+  margin-top: 0.5rem;
+}
+
+body form.popup h3 {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body form.popup p {
+  width: 17rem;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+body form.popup p a {
+  color: #333;
+  font-weight: bold;
+}
+
+body form.popup input {
+  background-color: #f5f5f5;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 3px;
+  font-family: "Open Sans";
+}
+
 body .loader {
   position: fixed;
   width: 100%;
@@ -81,8 +168,8 @@ body div.settings {
   overflow-y: auto;
   overflow-x: hidden;
   opacity: 0;
-  -webkit-transition: .3s opacity;
-  transition: .3s opacity;
+  -webkit-transition: 0.3s opacity;
+  transition: 0.3s opacity;
   pointer-events: none;
 }
 
@@ -120,7 +207,7 @@ body div.settings .header-project-settings {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-bottom: .8rem;
+  padding-bottom: 0.8rem;
   margin-bottom: 1rem;
 }
 
@@ -137,8 +224,8 @@ body div.settings .header-project-settings h3 {
 }
 
 body div.settings .header-project-settings h3 i {
-  margin-left: .7rem;
-  margin-top: .25rem;
+  margin-left: 0.7rem;
+  margin-top: 0.25rem;
 }
 
 body div.settings .header-project-settings .close {
@@ -170,6 +257,7 @@ body div.settings form.options {
 }
 
 body div.settings form.options .option {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -180,11 +268,26 @@ body div.settings form.options .option {
   border-left: 3px solid #444857;
   background: -webkit-gradient(linear, left top, right top, from(rgba(147, 155, 187, 0.096)), to(rgba(113, 119, 144, 0)));
   background: linear-gradient(to right, rgba(147, 155, 187, 0.096), rgba(113, 119, 144, 0));
-  width: calc(100% - .1rem);
+  width: calc(100% - 0.1rem);
   padding: 1rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
   margin-bottom: 1rem;
   font-family: "Open Sans";
+}
+
+body div.settings form.options .option span.visibilty {
+  position: absolute;
+  z-index: 3;
+  color: #000;
+  top: 3.6rem;
+  right: 0;
+  margin-right: 2rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+body div.settings form.options .option.title-01 {
+  display: none;
 }
 
 body div.settings form.options .option h4 {
@@ -205,8 +308,8 @@ body div.settings form.options .option h4 i {
 }
 
 body div.settings form.options .option input {
-  margin-top: .7rem;
-  padding: .8rem;
+  margin-top: 0.7rem;
+  padding: 0.8rem;
   font-size: 1rem;
   border-radius: 4px;
   background-color: #fff !important;
@@ -215,31 +318,31 @@ body div.settings form.options .option input {
 }
 
 body div.settings form.options .option textarea {
-  margin-top: .7rem;
+  margin-top: 0.7rem;
   border-radius: 4px;
-  padding: .8rem;
+  padding: 0.8rem;
   background-color: #fff !important;
   border: none;
   outline-color: black;
   max-width: calc(100% - 1.8rem);
   font-family: "Open Sans";
-  font-size: .9rem;
+  font-size: 0.9rem;
   max-height: 10rem;
 }
 
 body div.settings form.options .option b {
-  margin-left: .2rem;
-  font-size: .9rem;
-  margin-top: .5rem;
+  margin-left: 0.2rem;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 
 body div.settings form.options .option b i {
-  margin-right: .1rem;
+  margin-right: 0.1rem;
 }
 
 body div.settings form.options .option small {
-  margin-top: .3rem;
-  margin-left: .1rem;
+  margin-top: 0.3rem;
+  margin-left: 0.1rem;
 }
 
 body div.settings form.options .option small span {
@@ -255,8 +358,10 @@ body main {
   overflow-y: auto;
   z-index: 1;
   background-color: #fafafa;
-  -webkit-transition: .3s filter;
-  transition: .3s filter;
+  -webkit-transition: 0.3s -webkit-filter;
+  transition: 0.3s -webkit-filter;
+  transition: 0.3s filter;
+  transition: 0.3s filter, 0.3s -webkit-filter;
 }
 
 body main.br-50 {
@@ -288,6 +393,10 @@ body main nav div.logo-section svg {
   fill: #fff;
   width: 5rem;
   height: 4rem;
+}
+
+body main nav div.header-project-section {
+  margin-left: 4rem !important;
 }
 
 body main nav div.header-project-section span {
@@ -324,7 +433,7 @@ body main nav div.header-project-section span b div.container-edit.sh-inp input 
 }
 
 body main nav div.header-project-section span b div.container-edit.sh-inp ~ i {
-  margin-left: .7rem;
+  margin-left: 0.7rem;
 }
 
 body main nav div.header-project-section span b div.container-edit input {
@@ -334,7 +443,7 @@ body main nav div.header-project-section span b div.container-edit input {
   bottom: 0;
   left: 0rem;
   font-size: 1rem;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
   border: none;
   outline: none;
   background-color: inherit;
@@ -354,9 +463,9 @@ body main nav div.header-project-section span b div.container-edit span.title {
 }
 
 body main nav div.header-project-section span b i {
-  font-size: .8rem;
-  margin-left: .2rem;
-  margin-bottom: .1rem;
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+  margin-bottom: 0.1rem;
   cursor: pointer;
 }
 
@@ -380,11 +489,11 @@ body main nav .controls button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: .5rem .8rem !important;
+  padding: 0.5rem 0.8rem !important;
 }
 
 body main nav .controls button:first-of-type {
-  margin-right: .3rem;
+  margin-right: 0.3rem;
 }
 
 body main nav .controls button:hover {
@@ -450,10 +559,10 @@ body main section #Editor #editor.ck-focused {
     display: none;
   }
   body main nav div.logo-section {
-    margin-left: .5rem !important;
+    margin-left: 0.5rem !important;
   }
   body main nav div.controls {
-    margin-right: .5rem !important;
+    margin-right: 0.5rem !important;
   }
   body main section #Editor .ck.ck-toolbar {
     padding-top: 0rem !important;
@@ -464,12 +573,20 @@ body main section #Editor #editor.ck-focused {
     left: 50% !important;
     -webkit-transform: translate(-50%, 0%) !important;
             transform: translate(-50%, 0%) !important;
-    padding: 1rem .7rem !important;
+    padding: 1rem 0.7rem !important;
     max-height: 90% !important;
   }
   body .settings form.options .option {
-    padding: 1rem .5rem !important;
+    padding: 1rem 0.5rem !important;
     width: 100% !important;
+  }
+  body .settings form.options .option.title-01 {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  body .settings form.options .option span.visibilty {
+    margin-right: 1rem !important;
   }
 }
 /*# sourceMappingURL=site.css.map */

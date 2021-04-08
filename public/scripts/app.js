@@ -1,7 +1,7 @@
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/scripts/service-worker.js")
-    .then(console.log("service worker registerd !"))
+    .then(console.log("swrk registerd !"))
     .catch((err) => console.log(err));
 }
 
@@ -9,5 +9,54 @@ if ("serviceWorker" in navigator) {
 var ldr = document.querySelector(".loader");
 window.onload = () => {
   ldr.style.opacity = "0";
-  setTimeout(() => ldr.classList.add("stop"), 500);
+  setTimeout(() => ldr.classList.add("stop"),500);
 };
+
+
+const settings_btn = document.getElementById("settings");
+const settings = document.querySelector(".settings");
+const close_settings = document.getElementById("close");
+const main = document.querySelector("main");
+if (settings_btn) {
+  settings_btn.onclick = () => {
+    main.classList.toggle("br-50");
+    settings.classList.toggle("active");
+  };
+}
+
+if (close_settings) {
+  close_settings.onclick = () => {
+    main.classList.toggle("br-50");
+    settings.classList.toggle("active");
+  };
+}
+const vis = document.querySelector(".visibilty");
+if(vis){
+  vis.onclick = () => {
+
+    if (vis.textContent == "show") {
+      document.getElementById("repo-change-current-prj").setAttribute("type","text")
+      document.getElementById("repo-change-new-prj").setAttribute("type","text")
+      vis.innerHTML = "hide"
+    }
+    else {
+      document.getElementById("repo-change-current-prj").setAttribute("type","password")
+      document.getElementById("repo-change-new-prj").setAttribute("type","password")
+      vis.innerHTML = "show"
+
+    }
+  }
+}
+
+//editor
+
+if (typeof DecoupledEditor != "undefined") {
+  DecoupledEditor.create(document.querySelector("#editor"))
+    .then((editor) => {
+      const toolbarContainer = document.querySelector("#toolbar-container");
+      toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
