@@ -66,7 +66,9 @@ if (typeof DecoupledEditor != "undefined") {
       })
         .then(res => res.json())
         .then(Data => {
-          editor.setData(Data.data);
+          if(Data.data!=""){
+            editor.setData(Data.data);
+          }
           const toolbarContainer = document.querySelector("#toolbar-container");
           toolbarContainer.appendChild(editor.ui.view.toolbar.element);
         })

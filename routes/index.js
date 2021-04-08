@@ -72,12 +72,14 @@ Router.get("/:id",(req,res) => {
               res.render("site",Message);
             })
             .catch((err) => {
+              console.log("here1",err);
               res.redirect("/");
             });
         });
 
       }
       else {
+        console.log("here2");
         res.redirect("/");
       }
     })
