@@ -1,4 +1,4 @@
 {
     "version" : 2,
-    "builds" : [{"src":"app.js","use":"@now/node-server"}]
+    "builds" : [{"src":"app.js","use":"@vercel/node"}]
 }
