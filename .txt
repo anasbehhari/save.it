@@ -1,1 +1,0 @@
-DBURI="mongodb+srv://anasbehhari:saveit2020@saveit.qsp1r.mongodb.net/saveit?retryWrites=true&w=majorit"

@@ -36,8 +36,10 @@ const updateForm = (type,value) => {
                 message.classList.toggle("show")
                 setTimeout(() => {
                     message.classList.toggle("show")
+                },3500)
+                setTimeout(() => {
                     message.classList.remove("success-bg")
-                },2500)
+                },4000)
             }
 
             else {
@@ -46,20 +48,21 @@ const updateForm = (type,value) => {
                 message.classList.toggle("show")
                 setTimeout(() => {
                     message.classList.toggle("show")
+                },3500)
+                setTimeout(() => {
                     message.classList.remove("danger-bg")
-                },2500)
+                },4000)
             }
 
         })
         .catch(err => {
-
             message.classList.add("danger-bg")
             message.textContent = err;
             message.classList.toggle("show")
             setTimeout(() => {
                 message.classList.toggle("show")
                 message.classList.remove("danger-bg")
-            },2500)
+            },3500)
         })
 }
 const ChangeTitle = () => {
@@ -128,7 +131,6 @@ document.getElementById("save").onclick = () => {
         updateForm("save",Editor_value);
     }
 }
-
 document.addEventListener('keydown',e => {
     if (e.ctrlKey && e.key === 's') {
         e.preventDefault();
@@ -136,6 +138,6 @@ document.addEventListener('keydown',e => {
         if (Editor != Editor_value) {
             Editor = Editor_value;
             updateForm("save",Editor_value);
-        }        
+        }
     }
 });

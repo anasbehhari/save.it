@@ -2,6 +2,7 @@
 const Router = require("express").Router()
 const Project = require("../../models/Project");
 const bcrypt = require('bcrypt');
+var CryptoJS = require("crypto-js");
 function emailIsValid(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
@@ -16,7 +17,7 @@ Router.post("/update",(req,res) => {
                     res.send({ updated: false,message: "something went wrong ! " })
                 }
                 if (response.nModified == 1 && response.ok == 1) {
-                    res.send({ updated: true,message: "Title updated sucessfully !" })
+                    res.send({ updated: true,message: "updated ! " })
                 }
                 else {
                     res.send({ updated: false,message: "something went wrong ! " })
@@ -32,7 +33,7 @@ Router.post("/update",(req,res) => {
                         res.send({ updated: false,message: "something went wrong ! " })
                     }
                     if (response.nModified == 1 && response.ok == 1) {
-                        res.send({ updated: true,message: "Email updated sucessfully !" })
+                        res.send({ updated: true,message: "updated !" })
                     }
                     else {
                         res.send({ updated: false,message: "something went wrong ! " })
@@ -53,7 +54,7 @@ Router.post("/update",(req,res) => {
                 }
 
                 if (response.nModified == 1 && response.ok == 1) {
-                    res.send({ updated: true,message: "userName updated sucessfully !" })
+                    res.send({ updated: true,message: "updated !" })
                 }
                 else {
                     res.send({ updated: false,message: "something went wrong !" })
@@ -69,7 +70,7 @@ Router.post("/update",(req,res) => {
                 }
 
                 if (response.nModified == 1 && response.ok == 1) {
-                    res.send({ updated: true,message: "Description updated sucessfully !" })
+                    res.send({ updated: true,message: "updated !" })
                 }
                 else {
                     res.send({ updated: false,message: "something went wrong 2 !" + value })
@@ -88,7 +89,7 @@ Router.post("/update",(req,res) => {
                                             res.send({ updated: false,message: "something went wrong !" })
                                         }
                                         if (response.nModified == 1 && response.ok == 1) {
-                                            res.send({ updated: true,message: "updated sucessfully ! New Password : " + value.newPassword })
+                                            res.send({ updated: true,message: "updated !" })
                                         }
                                         else {
                                             res.send({ updated: false,message: "something went wrong  !" })
@@ -123,7 +124,7 @@ Router.post("/update",(req,res) => {
             break;
         case "save":
             var filter = { Project_route: route,Project_key: opid };
-            Project.updateOne(filter,{ Project_Content: value },function (err,response) {
+            Project.updateOne(filter,{ Project_Content: CryptoJS.AES.encrypt(value,opid).toString() },function (err,response) {
                 if (err) {
                     res.send({ updated: false,message: "something went wrong !" })
                 }
@@ -139,11 +140,13 @@ Router.post("/update",(req,res) => {
     }
 })
 Router.post("/content",(req,res) => {
-    const {route,opid } = req.body;
-
+    const { route,opid } = req.body;
     Project.findOne({ Project_route: route,Project_key: opid })
         .then(data => {
             if (data != null) {
+                var bytes = CryptoJS.AES.decrypt(data.Project_Content,data.Project_key);
+                var originalText = bytes.toString(CryptoJS.enc.Utf8)
+                data.Project_Content = originalText;
                 res.send({ status: "success",data: data.Project_Content })
             }
             else {

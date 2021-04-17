@@ -17,9 +17,9 @@ body {
 
 body div.message-alert {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0;
+  width: 100%;
   z-index: 9;
-  margin-left: 2rem;
   color: #fff;
   font-family: "Open Sans";
   padding: 0.8rem 1rem;
@@ -27,8 +27,8 @@ body div.message-alert {
   transition: 0.3s opacity, 0.6s -webkit-transform;
   transition: 0.6s transform, 0.3s opacity;
   transition: 0.6s transform, 0.3s opacity, 0.6s -webkit-transform;
-  -webkit-transform: translateX(-50rem);
-          transform: translateX(-50rem);
+  -webkit-transform: translateY(5rem);
+          transform: translateY(5rem);
   opacity: 0;
   pointer-events: none;
   font-size: 0.95rem;
@@ -39,8 +39,8 @@ body div.message-alert i {
 }
 
 body div.message-alert.show {
-  -webkit-transform: translateX(0rem);
-          transform: translateX(0rem);
+  -webkit-transform: translateY(0rem);
+          transform: translateY(0rem);
   opacity: 1;
 }
 
@@ -66,6 +66,8 @@ body form.popup {
 
 body form.popup small {
   margin-top: 0.5rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 body form.popup h3 {

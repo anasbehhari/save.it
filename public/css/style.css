@@ -421,6 +421,7 @@ body section .inputs form textarea {
   padding: .5rem;
   max-width: 39rem !important;
   outline-color: inherit;
+  font-family: "Open Sans";
 }
 
 body footer {

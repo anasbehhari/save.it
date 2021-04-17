@@ -2,7 +2,6 @@ const Project = require("../models/Project");
 const Router = require("express").Router();
 var generator = require("generate-password");
 const bcrypt = require('bcrypt');
-var CryptoJS = require("crypto-js");
 Router.get("/clear",(req,res) => {
   Project.deleteMany()
     .then(res.send("clear"))
@@ -13,10 +12,6 @@ Router.get("/database",(req,res) => {
     res.json(data);
   });
 });
-
-//CryptoJS.AES.encrypt("<blockquote><p> Welcome ! we're Ready to <strong><u>Save.it !</u></strong> </p> </blockquote>",Serial).toString()
-//var bytes = CryptoJS.AES.decrypt(newone.Project_Content,newone.Project_key);
-//var originalText = bytes.toString(CryptoJS.enc.Utf8);
 
 Router.get("/",(req,res) => {
   res.render("index");
@@ -29,7 +24,7 @@ Router.post("/pid",(req,res) => {
     !req.body.rep.startsWith(" ") &&
     req.body.rep.length > 3
   ) {
-    const rep = req.body.rep;
+    const rep = (req.body.rep).replace(" ","");
     res.redirect(`/${rep}`);
   } else {
     res.redirect("/");

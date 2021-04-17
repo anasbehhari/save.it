@@ -9,3 +9,11 @@ window.onload = () => {
     ldr.style.opacity = "0";
     setTimeout(() => ldr.classList.add("stop"),500);
 };
+
+const spn = document.getElementById("spn-bcm");
+if(spn) {
+   spn.onclick = ()=>{
+       document.getElementById("name").value = "Company name";
+       document.getElementById("object").value = "sponsorship proposal";
+   }
+}
