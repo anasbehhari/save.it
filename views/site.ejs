@@ -23,11 +23,11 @@
 
 <body>
   <%- include('components/loader.ejs') %>
-    <% if(!Encrypted) { %>
+    <% if(!Encrypted && typeof anas !="undefined" ) { %>
       <form method="POST" class="popup" action="/<%= Data.Project_route %>">
         <h3>Password required <i class="icn-lock"></i></h3>
         <p>
-          This repo is taken ! &nbsp;
+          This repo is already taken ! &nbsp;
           If it's yours enter the password, or you can try using
           <a href="/">different site</a>.
         </p>
@@ -38,146 +38,182 @@
         <% if (typeof incorrect!="undefined" ) { %>
           <small class="danger">password incorrect !</small>
           <% } %>
+            <a id="frg">Forget password ?</a>
       </form>
       <% } %>
-        <% if(Encrypted && Data) { %>
-          <div class="message-alert">
-            Title updated sucessfully <i class="icn-check"></i>
-          </div>
-          <div class="settings darkGr-bg">
-            <div class="header-project-settings">
-              <h3>Project Settings <i class="icn-cog"></i></h3>
-              <div class="close" id="close">
-                <i class="icn-close"></i>
-              </div>
-            </div>
-            <form class="options">
-              <div class="option title-01">
-                <h4>
-                  <label> Project Title </label>
-                  <i class="icn-edit"></i>
-                </h4>
-                <input autocomplete="" type="text" placeholder="Title" id="title-prj"
-                  value="<%= Data.Project_title %>" />
-              </div>
-              <div class="option">
-                <h4>
-                  <label>Your name</label>
-                  <i class="icn-user"></i>
-                </h4>
-                <input autocomplete="" type="text" placeholder="Type your name" id="yourname-prj"
-                  value="<%= Data.Project_owner %>" />
-              </div>
-              <div class="option">
-                <h4>
-                  <label>Project Description</label>
-                  <i class="icn-edit"></i>
-                </h4>
-                <textarea name="" id="Description-prj" cols="30" rows="10"><%= Data.Project_Description %></textarea>
-              </div>
-
-              <div class="option password">
-                <h4>
-                  <label>Change password </label>
-                  <i class="icn-lock"></i>
-                </h4>
-                <input autocomplete="" type="password" placeholder="Type current password"
-                  id="repo-change-current-prj" />
-                <span class="visibilty">show</span>
-                <input autocomplete="" type="password" placeholder="Type new password" id="repo-change-new-prj" />
-              </div>
-              <div class="option">
-                <h4>
-                  <label>Your Email *</label>
-                  <i class="icn-edit"></i>
-                </h4>
-                <input autocomplete="" type="email"
-                  placeholder="It helps you to recover your repo if you forgot the password" id="email-prj"
-                  value="<%= Data.Project_email %>" />
-              </div>
-              <div class="option " id="delete-repo">
-                <h4 class="danger">
-                  <label> Delete repo </label>
-                  <i class="icn-delete"></i>
-                </h4>
-                <input autocomplete="" type="text" placeholder="" id="repo-delete-prj" />
-                <small>Please type <span>save.it/<%= Data.Project_route %></span> to confirm
-                </small>
-              </div>
-             
-            </form>
-          </div>
+        <% if( typeof anas=="undefined" && !Encrypted) { %>
+          <form class="popup">
+            <h3>Reset Password <i class="icn-lock"></i></h3>
+            <p>Here is your new password now ! you can change after in <b>settings</b></p>
+            <h2 style="text-align: center; width: 100%;">
+              <%= password %>
+            </h2>
+            <a class="darkGr" target="_blank" href="/<%= route %>">login now</a>
+            <small style="text-align: left;">
+              <b class="danger">Notice :<br> This link will be deleted after you close this page !</b>
+            </small>
+          </form>
           <% } %>
-            <main <% if(!Encrypted) { %> class="br-50" <% }%> >
-                <nav class="darkGr-bg">
-                  <div class="logo-section">
-                    <a href="">
-                      <%- include('components/logo.ejs') %>
-                    </a>
+            <div class="message-alert">
+            </div>
+            <% if(Encrypted && Data ) { %>
+              <div class="settings darkGr-bg">
+                <div class="header-project-settings">
+                  <h3>Project Settings <i class="icn-cog"></i></h3>
+                  <div class="close" id="close">
+                    <i class="icn-close"></i>
                   </div>
-                  <div class="header-project-section">
-                    <span>
-                      <b>
-                        <div class="container-edit">
-                          <input autocomplete="" class="darkGr-bg" id="titleID" type="text" />
-                          <span class="title">
-                            <% if (Data.Project_title) { %>
-                              <%= Data.Project_title %>
-                                <% } else { %>
-                                  Untiteld
-                                  <% } %>
-                          </span>
-                        </div>
-                        <i id="edit-title" class="icn-edit"></i>
-                      </b>
-                      <small style="display: flex;">https://save.it/<span class="route">
-                          <%= Data.Project_route %>
-                        </span> </small>
-                    </span>
+                </div>
+                <form class="options">
+                  <div class="option title-01">
+                    <h4>
+                      <label> Project Title </label>
+                      <i class="icn-edit"></i>
+                    </h4>
+                    <input autocomplete="" type="text" placeholder="Title" id="title-prj"
+                      value="<%= Data.Project_title %>" />
                   </div>
-                  <div class="controls">
-                    <button class="btnlz outlined white" id="save">
-                      <svg viewBox="0 0 100 100">
-                        <path
-                          d="M84.187 44.046c.084-.753.114-1.52.114-2.289 0-13.402-10.814-24.257-24.154-24.257-10.354 0-19.161 6.551-22.599 15.754-2.274-2.508-5.521-4.111-9.166-4.111-6.872 0-12.439 5.59-12.439 12.493 0 .816.084 1.606.239 2.38C7.014 45.534 0 53.472 0 63.095 0 73.824 8.648 82.5 19.323 82.5h61.354C91.351 82.5 100 73.824 100 63.095c0-9.505-6.823-17.38-15.813-19.049z">
-                        </path>
-                      </svg>
-                      Save
-                    </button>
-                    <button class="btnlz outlined white" id="settings">
-                      <i class="icn-cog"></i>
-                    </button>
+                  <div class="option">
+                    <h4>
+                      <label>Your name</label>
+                      <i class="icn-user"></i>
+                    </h4>
+                    <input autocomplete="" type="text" placeholder="Type your name" id="yourname-prj"
+                      value="<%= Data.Project_owner %>" />
                   </div>
-                </nav>
-                <section id="text-editor">
-                  <div id="Editor" style="font-family: 'Open Sans !important';">
-                    <div id="toolbar-container"></div>
-                    <div id="editor">
-                      <% if (Encrypted && typeof newOne!="undefined" ) { %>
-                        <blockquote>
-                          <p> Welcome ! we're Ready to <strong><u>Save.it !</u></strong> </p>
-                        </blockquote>
-                        <ul>
-                          <li>
-                            Your Password by default is : <b><u>
-                                <%= password %>
-                              </u></b>
-                            Make sure to Change it by clicking on <b>Settings</b>
-                          </li>
-                        </ul>
-                        <% } %>
-                          <% if (Encrypted && typeof newOne=="undefined" ) { %>
+                  <div class="option">
+                    <h4>
+                      <label>Project Description</label>
+                      <i class="icn-edit"></i>
+                    </h4>
+                    <textarea name="" id="Description-prj" cols="30"
+                      rows="10"><%= Data.Project_Description %></textarea>
+                  </div>
+                  
 
-                            <% } %>
-                    </div>
+                  <div class="option password">
+                    <h4>
+                      <label>Change password </label>
+                      <i class="icn-lock"></i>
+                    </h4>
+                    <input autocomplete="" type="password" placeholder="Type current password"
+                      id="repo-change-current-prj" />
+                    <span class="visibilty">show</span>
+                    <input autocomplete="" type="password" placeholder="Type new password" id="repo-change-new-prj" />
                   </div>
-                </section>
-            </main>
+                  <div class="option">
+                    <h4>
+                      <label>Your Email *</label>
+                      <i class="icn-edit"></i>
+                    </h4>
+                    <input autocomplete="" type="email"
+                      placeholder="It helps you to recover your repo if you forgot the password" id="email-prj"
+                      value="<%= Data.Project_email %>" />
+                  </div>
+                  <div class="option">
+                    <h4>
+                      <label>Export as Word document
+                        <svg width="1rem" height="1rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                          <path
+                            d="M15.5 2H9V.5a.499.499 0 00-.592-.491l-8 1.5A.499.499 0 000 2v11a.5.5 0 00.408.491l8 1.5A.498.498 0 009 14.5V13h6.5a.5.5 0 00.5-.5v-10a.5.5 0 00-.5-.5zm-9.003 8.056a.5.5 0 01-.965.12L4.5 7.424l-1.032 2.752a.499.499 0 11-.963-.106l-.5-3.5a.5.5 0 01.99-.141l.223 1.564.813-2.169c.146-.39.79-.39.937 0l.766 2.042.269-2.422a.505.505 0 01.552-.441.5.5 0 01.442.552l-.5 4.501zM15 12H9v-1h4.5a.5.5 0 000-1H9V9h4.5a.5.5 0 000-1H9V7h4.5a.5.5 0 000-1H9V5h4.5a.5.5 0 000-1H9V3h6v9z" />
+                        </svg>
+                      </label>
+                      <i class="icn-folder-open"></i>
+                    </h4>
+                    <span  class="btn  white-bg" id="exportWORD">
+                      <b class="darkGr">Export</b>
+                    </span>
+                  </div>  
+                  <div class="option " id="delete-repo">
+                    <h4 class="danger">
+                      <label> Delete repo </label>
+                      <i class="icn-delete"></i>
+                    </h4>
+                    <input autocomplete="" type="text" placeholder="" id="repo-delete-prj" />
+                    <small>Please type <span>save.it/<%= Data.Project_route %></span> to confirm
+                    </small>
+                  </div>
+
+                </form>
+              </div>
+              <% } %>
+                <main <% if(!Encrypted) { %> class="br-50" <% }%> >
+                    <nav class="darkGr-bg">
+                      <div class="logo-section">
+                        <a href="">
+                          <%- include('components/logo.ejs') %>
+                        </a>
+                      </div>
+                      <div class="header-project-section">
+                        <span>
+                          <b>
+                            <div class="container-edit">
+                              <input autocomplete="" class="darkGr-bg" id="titleID" type="text" />
+                              <span class="title">
+                                <% if (Data.Project_title) { %>
+                                  <%= Data.Project_title %>
+                                    <% } else { %>
+                                      Untiteld
+                                      <% } %>
+                              </span>
+                            </div>
+                            <i id="edit-title" class="icn-edit"></i>
+                          </b>
+                          <small style="display: flex;">https://save.it/<span class="route">
+                              <%= Data.Project_route %>
+                            </span> </small>
+                        </span>
+                      </div>
+                      <div class="controls">
+                        <button class="btnlz outlined white" id="save">
+                          <svg viewBox="0 0 100 100">
+                            <path
+                              d="M84.187 44.046c.084-.753.114-1.52.114-2.289 0-13.402-10.814-24.257-24.154-24.257-10.354 0-19.161 6.551-22.599 15.754-2.274-2.508-5.521-4.111-9.166-4.111-6.872 0-12.439 5.59-12.439 12.493 0 .816.084 1.606.239 2.38C7.014 45.534 0 53.472 0 63.095 0 73.824 8.648 82.5 19.323 82.5h61.354C91.351 82.5 100 73.824 100 63.095c0-9.505-6.823-17.38-15.813-19.049z">
+                            </path>
+                          </svg>
+                          Save
+                        </button>
+                        <button class="btnlz outlined white" id="settings">
+                          <i class="icn-cog"></i>
+                        </button>
+                      </div>
+                    </nav>
+                    <section id="text-editor">
+                      <div id="Editor" style="font-family: 'Open Sans !important';">
+                        <div id="toolbar-container"></div>
+                        <div id="editor">
+                          <% if (Encrypted && typeof newOne!="undefined" ) { %>
+                            <blockquote>
+                              <p> Welcome ! we're Ready to <strong><u>Save.it !</u></strong> </p>
+                            </blockquote>
+                            <h2><b>Settings</b></h2>
+                            <ul>
+
+                              <li>
+                                Your Password by default is : <b><u>
+                                    <%= password %>
+                                  </u></b>
+                                Make sure to Change it .
+                              </li>
+                              <li>
+                                Also make sure to submit your <b>@Email</b> address for recovering your password in case
+                                you
+                                forget it .
+                              </li>
+                            </ul>
+                            <% } %>
+                              <% if (Encrypted && typeof newOne=="undefined" ) { %>
+
+                                <% } %>
+                        </div>
+                      </div>
+                    </section>
+                </main>
 </body>
 <% if (Encrypted) { %>
   <script src="/scripts/settings.js"></script>
   <script src="/scripts/ckeditor.js"></script>
   <% } %>
     <script src="/scripts/app.js"></script>
-  
+
 </html>

@@ -3,8 +3,29 @@ const Router = require("express").Router()
 const Project = require("../../models/Project");
 const bcrypt = require('bcrypt');
 var CryptoJS = require("crypto-js");
+const uuid = require("uuid");
 function emailIsValid(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+function hideemail(target) {
+    var email = target
+    var hiddenEmail = "";
+    for (i = 0; i < email.length; i++) {
+        if (i > 2 && i < email.indexOf("@")) {
+            hiddenEmail += "*";
+        } else {
+            hiddenEmail += email[i];
+        }
+    }
+    return hiddenEmail
+}
+function getRandomString(length) {
+    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    for (var i = 0; i < length; i++) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
 }
 Router.post("/update",(req,res) => {
     const { type,value,route,opid } = req.body;
@@ -157,5 +178,66 @@ Router.post("/content",(req,res) => {
             res.send({ status: "failure",message: "something went wrong !" })
         })
 })
+Router.post("/frgp",(req,res) => {
+    const { route } = req.body;
+    Project.findOne({ Project_route: route })
+        .then(data => {
+            if (data != null && data.Project_email != "") {
+                const nodemailer = require("nodemailer");
+                let transporter = nodemailer.createTransport({
+                    service: "gmail",
+                    auth: {
+                        user: process.env.EMAIL_UNSERNAME,
+                        pass: process.env.EMAIL_PASSWORD
+                    }
+                })
+                const link = uuid.v4() + "-@:" + getRandomString(45)+"?route="+route ;
+                let mailOptions = {
+                    from: "saveit.noreply@gmail.com",
+                    to: data.Project_email,
+                    subject: "Reset your Route password for  save.it/" + data.Project_route + " account ! ",
+                    html: `
+                    <div>
+                    <h4>Reset your Password </h4>
+                       <p>
+                        In order to reset your password follow this link : <b> <a target='_blank' href="http://localhost:5000/rgpsw/${link}">Click here </a></b>
+                       </p>
+
+                       <b style="color:red">Notice  : This Link only for one ! use which means as soon as you click this link be deleted ! </b>
+                       
+                    </div>
+                    `
+                }
+                transporter.sendMail(mailOptions,function (err,data) {
+                    if (err) {
+                        return res.send({ status: "failure",Message: "something went wrong please refresh the page !" })
+                    }
+                })
+                var filter = { Project_route: route };
+                var newvalues = { $set: { Project_recovery: link } };
+                Project.updateOne(filter,newvalues,function (err,response) {
+                    if (err) {
+                        res.send({ status: "failure",Message: "something went wrong   !" })
+                    }
+                    if (response.nModified == 1 && response.ok == 1) {
+                        res.send({ status: "success",Message: "Email sent to " + hideemail(data.Project_email) })
+                    }
+                    else {
+                        res.send({ status: "failure",Message: "something went wrong   !" })
+                    }
+                });
+            }
+            else if (data && data.Project_email == "") {
+                res.send({ status: "failure",Message: "This route has no Email ! it will be deleted in 7 days " })
+            }
+            else {
+                res.send({ status: "failure",Message: "something went wrong   !" })
+            }
+        })
+        .catch(err => {
+            res.send({ status: "failure",Message: "something went wrong   !" })
+        })
+})
+
 
 module.exports = Router;

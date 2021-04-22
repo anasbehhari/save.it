@@ -4,6 +4,7 @@ const input = containerEdit.querySelector("#titleID");
 const route = window.location.pathname.replace("/","");
 const opid = localStorage.getItem("opid");
 const message = document.querySelector(".message-alert");
+let chg = true;
 const Title_input = document.getElementById("title-prj");
 var Title_input_value = document.getElementById("title-prj").value;
 const email_input = document.getElementById("email-prj");
@@ -32,6 +33,7 @@ const updateForm = (type,value) => {
             }
             else if (response.updated) {
                 message.classList.add("success-bg")
+                message.classList.add("dib")
                 message.textContent = response.message;
                 message.classList.toggle("show")
                 setTimeout(() => {
@@ -44,6 +46,7 @@ const updateForm = (type,value) => {
 
             else {
                 message.classList.add("danger-bg")
+                message.classList.add("dib")
                 message.textContent = response.message;
                 message.classList.toggle("show")
                 setTimeout(() => {
@@ -56,6 +59,7 @@ const updateForm = (type,value) => {
 
         })
         .catch(err => {
+            message.classList.add("dib")
             message.classList.add("danger-bg")
             message.textContent = err;
             message.classList.toggle("show")
@@ -65,10 +69,27 @@ const updateForm = (type,value) => {
             },3500)
         })
 }
+function exportHTML(Element) {
+    var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+        "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+        "xmlns='http://www.w3.org/TR/REC-html40'>" +
+        "<head><meta charset='utf-8'><title>Exported By SAVE.IT </title></head><body>";
+    var footer = "</body></html>";
+    var sourceHTML = header + document.getElementById(Element).innerHTML + footer;
+    var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+    var fileDownload = document.createElement("a");
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = 'Saveit.doc';
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+    chg = false;
+    setTimeout(chg = true,10000)
+}
 const ChangeTitle = () => {
     containerEdit.classList.remove("sh-inp");
     containerEdit.querySelector("span.title").textContent = input.value;
-    updateForm("title",input.value)
+    updateForm("Title",input.value)
 };
 editTitle.onclick = () => {
     containerEdit.classList.add("sh-inp");
@@ -141,3 +162,8 @@ document.addEventListener('keydown',e => {
         }
     }
 });
+document.getElementById("exportWORD").onclick  = () => {
+    if (chg) {
+        exportHTML("editor");
+    }
+}

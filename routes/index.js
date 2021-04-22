@@ -12,10 +12,51 @@ Router.get("/database",(req,res) => {
     res.json(data);
   });
 });
-
 Router.get("/",(req,res) => {
   res.render("index");
 });
+Router.post("/",(req,res) => {
+  const { fullname,object,email,message } = req.body;
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2,'0');
+  var mm = String(today.getMonth() + 1).padStart(2,'0'); //January is 0!
+  var yyyy = today.getFullYear();
+  today = mm + '/' + dd + '/' + yyyy;
+  if (fullname != "" && object != "" && email != "" && message != "") {
+    const nodemailer = require("nodemailer");
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_UNSERNAME,
+        pass: process.env.EMAIL_PASSWORD
+      }
+    })
+
+    let mailOptions = {
+      from: "saveit.noreply@gmail.com",
+      to: "an.behhari@gmail.com",
+      subject: object + "| Save.it Contact form " + today,
+      html: `
+      <iframe>
+      <ul>
+        <li>From : ${fullname}</li>
+        <li>Object : <b>${object}</b></li>
+      </ul>
+      <p>
+       ${message}
+      </p>
+      </iframe>
+      `
+    }
+    transporter.sendMail(mailOptions,function (err,data) {
+      if (err) {
+        return res.send({ status: "failure",Message: "something went wrong please refresh the page !" })
+      }
+      res.render("index",{ success:true})
+    })
+  }
+
+})
 Router.post("/pid",(req,res) => {
   if (
     req.body.rep != null &&
@@ -30,6 +71,41 @@ Router.post("/pid",(req,res) => {
     res.redirect("/");
   }
 });
+Router.get("/rgpsw/:id",(req,res) => {
+  if (req.params.id) {
+    var filter = { Project_recovery: req.params.id+"?route="+req.query.route };
+    var password = generator.generate({
+      length: 10,
+      numbers: true,
+    });
+    bcrypt.hash(password,10,function (err,hash) {
+      if (err) {
+        res.redirect("/")
+      }
+      var newvalues = { $set: { Project_recovery: "",Project_password: hash } };
+      Project.updateOne(filter,newvalues,function (err,response) {
+        if (err) {
+          res.redirect("/")
+        }
+        if (response.nModified == 1 && response.ok == 1) {
+          const Message = {
+            Encrypted: false,
+            Data: {
+              Project_route: ""
+            },
+            password,
+            route: req.query.route
+          }
+          res.render("site",Message)
+        }
+        else {
+          res.redirect("/")
+        }
+      });
+    });
+
+  }
+})
 Router.get("/:id",(req,res) => {
   Project.findOne({ Project_route: req.params.id })
     .then((data) => {
@@ -38,7 +114,8 @@ Router.get("/:id",(req,res) => {
           Encrypted: false,
           Data: {
             Project_route: req.params.id
-          }
+          },
+          anas: true
         }
         res.render("site",Message);
       }
@@ -67,14 +144,12 @@ Router.get("/:id",(req,res) => {
               res.render("site",Message);
             })
             .catch((err) => {
-              console.log("here1",err);
               res.redirect("/");
             });
         });
 
       }
       else {
-        console.log("here2");
         res.redirect("/");
       }
     })
@@ -88,7 +163,7 @@ Router.post("/:id",(req,res) => {
         if (data != null) {
           bcrypt.compare(password,data.Project_password,function (err,result) {
             if (err) {
-              res.send({ status: "failure",message: "Error Handling request (wa walo a m3alem ) ! " })
+              res.send({ status: "failure",message: "Error Handling request ! " })
             }
             if (result) {
               const Message = {
@@ -103,7 +178,8 @@ Router.post("/:id",(req,res) => {
                 Data: {
                   Project_route: req.params.id
                 },
-                incorrect: true
+                incorrect: true,
+                anas: true
               }
               res.render("site",Message);
             }

@@ -11,7 +11,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   width: 100%;
-
   .loader {
     position: fixed;
     width: 100%;
@@ -136,7 +135,13 @@ body {
         border-radius: 3px;
         display: flex;
         align-items: center;
-
+        b.text-mail {
+          display: flex;
+          align-items: center;
+          i {
+            margin-left: .5rem;
+          }
+        }
         span {
           font-style: italic;
           user-select: none;

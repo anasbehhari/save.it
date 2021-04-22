@@ -170,6 +170,19 @@ body header div.container-section form.con-input {
           align-items: center;
 }
 
+body header div.container-section form.con-input b.text-mail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body header div.container-section form.con-input b.text-mail i {
+  margin-left: .5rem;
+}
+
 body header div.container-section form.con-input span {
   font-style: italic;
   -webkit-user-select: none;

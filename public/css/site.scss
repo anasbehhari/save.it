@@ -24,9 +24,13 @@ body {
     transform: translateY(5rem);
     opacity: 0;
     pointer-events: none;
+    display: none;
     font-size: 0.95rem;
     i {
       margin-left: 0.5rem;
+    }
+    &.dib {
+      display: block !important;
     }
     &.show {
       transform: translateY(0rem);
@@ -46,9 +50,20 @@ body {
     display: flex;
     flex-direction: column;
     small {
-      margin-top: 0.5rem;
+      margin-top: 1rem;
       text-align: center;
       font-weight: bold;
+    }
+    a {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      width: fit-content;
+      &:hover {
+      text-decoration: underline;
+
+      }
     }
     h3 {
       margin: 0;
@@ -220,9 +235,30 @@ body {
           display: flex;
           align-items: center;
           justify-content: space-between;
-
+          label {
+            display: flex;
+            align-items: center;
+            svg {
+              margin-left: .5rem;
+              fill : white
+            }
+          }
           i {
             font-size: 1rem;
+          }
+        }
+        span.btn   {
+          margin-top: 0.7rem;
+          padding: 0.6rem 2rem;
+          width: fit-content;
+          backface-visibility: visible !important;
+          background-color: #fff;
+          font-family: "Open Sans";
+          border-radius: 3px;
+          cursor: pointer;
+          transition: .2s transform ease-out;
+          &:active {
+           transform: scale(.96);
           }
         }
 
@@ -482,9 +518,9 @@ body {
           &.title-01 {
             display: flex !important;
           }
-        span.visibilty {
-          margin-right: 1rem !important;
-        }
+          span.visibilty {
+            margin-right: 1rem !important;
+          }
         }
       }
     }

@@ -31,11 +31,16 @@ body div.message-alert {
           transform: translateY(5rem);
   opacity: 0;
   pointer-events: none;
+  display: none;
   font-size: 0.95rem;
 }
 
 body div.message-alert i {
   margin-left: 0.5rem;
+}
+
+body div.message-alert.dib {
+  display: block !important;
 }
 
 body div.message-alert.show {
@@ -65,9 +70,23 @@ body form.popup {
 }
 
 body form.popup small {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   text-align: center;
   font-weight: bold;
+}
+
+body form.popup a {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+body form.popup a:hover {
+  text-decoration: underline;
 }
 
 body form.popup h3 {
@@ -305,8 +324,43 @@ body div.settings form.options .option h4 {
           justify-content: space-between;
 }
 
+body div.settings form.options .option h4 label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body div.settings form.options .option h4 label svg {
+  margin-left: .5rem;
+  fill: white;
+}
+
 body div.settings form.options .option h4 i {
   font-size: 1rem;
+}
+
+body div.settings form.options .option span.btn {
+  margin-top: 0.7rem;
+  padding: 0.6rem 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-backface-visibility: visible !important;
+          backface-visibility: visible !important;
+  background-color: #fff;
+  font-family: "Open Sans";
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: .2s transform ease-out;
+  transition: .2s transform ease-out;
+}
+
+body div.settings form.options .option span.btn:active {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
 }
 
 body div.settings form.options .option input {

@@ -1,7 +1,7 @@
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/scripts/service-worker.js")
-    .then(console.log("swrk registerd !"))
     .catch((err) => console.log(err));
 }
 function Decode(params) {
@@ -66,7 +66,7 @@ if (typeof DecoupledEditor != "undefined") {
       })
         .then(res => res.json())
         .then(Data => {
-          if(Data.data!=""){
+          if (Data.data != "") {
             editor.setData(Data.data);
           }
           const toolbarContainer = document.querySelector("#toolbar-container");
@@ -80,7 +80,63 @@ if (typeof DecoupledEditor != "undefined") {
       console.error(error);
     });
 }
-console.log();
+if(typeof route =="undefined") {
+  let route = window.location.pathname.replace("/","");
+  let opid = localStorage.getItem("opid");
+  let message = document.querySelector(".message-alert");
+  if (document.getElementById("frg")) {
+   document.getElementById("frg").onclick = () => {
+
+     fetch("./api/frgp",{
+       method: "POST",
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({ route,opid })
+     })
+       .then(data => data.json())
+       .then(response => {
+         if (response.status == "success") {
+           message.classList.add("dib")
+           message.classList.add("success-bg")
+           message.textContent = response.Message;
+           message.classList.toggle("show")
+           setTimeout(() => {
+             message.classList.toggle("show")
+           },3500)
+           setTimeout(() => {
+             message.classList.remove("success-bg")
+           },4000)
+         }
+         else {
+           message.classList.add("dib")
+           message.classList.add("danger-bg")
+           message.textContent = response.Message;
+           message.classList.toggle("show")
+           setTimeout(() => {
+             message.classList.toggle("show")
+           },3500)
+           setTimeout(() => {
+             message.classList.remove("danger-bg")
+           },4000)
+         }
+       })
+       .catch(err => {
+         message.classList.add("danger-bg")
+         message.textContent = "Something went wrong !";
+         message.classList.toggle("show")
+         setTimeout(() => {
+           message.classList.toggle("show")
+         },3500)
+         setTimeout(() => {
+           message.classList.remove("danger-bg")
+         },4000)
+       })
 
 
+   }
+ }
+
+
+}
 

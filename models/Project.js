@@ -37,6 +37,10 @@ const ProjectSchema = new mongoose.Schema({
     Project_key : {
        type:String,
         default: uuid.v4()
+    },
+    Project_recovery : {
+        type: String,
+        default : ""
     }
 })
 
