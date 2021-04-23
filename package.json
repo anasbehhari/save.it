@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "start" : "node app.js"
   },
   "repository": {
     "type": "git",
@@ -28,13 +29,7 @@
     "express": "^4.17.1",
     "generate-password": "^1.6.0",
     "mongoose": "^5.12.2",
-    "node-localstorage": "^2.1.6",
     "nodemailer": "^6.5.0",
-    "nodemon": "^2.0.7",
-    "uuid": "^8.3.2",
-    "vercel": "^21.3.3"
-  },
-  "devDependencies": {
-    "kill-port": "^1.6.1"
+    "uuid": "^8.3.2"
   }
 }

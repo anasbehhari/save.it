@@ -149,13 +149,7 @@
                           <b>
                             <div class="container-edit">
                               <input autocomplete="" class="darkGr-bg" id="titleID" type="text" />
-                              <span class="title">
-                                <% if (Data.Project_title) { %>
-                                  <%= Data.Project_title %>
-                                    <% } else { %>
-                                      Untiteld
-                                      <% } %>
-                              </span>
+                              <span class="title"><%if(Data.Project_title){%><%=Data.Project_title%><%}else{%>Untiteld<%}%></span>
                             </div>
                             <i id="edit-title" class="icn-edit"></i>
                           </b>
