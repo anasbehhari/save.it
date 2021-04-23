@@ -14,5 +14,6 @@ if(spn) {
    spn.onclick = ()=>{
        document.getElementById("name").value = "Company name";
        document.getElementById("object").value = "sponsorship proposal";
+       location.href="#contact"
    }
 }

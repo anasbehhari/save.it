@@ -119,12 +119,9 @@ body header nav ul li {
 body header nav ul li a {
   color: inherit;
   text-decoration: none;
-  margin-left: 1.5rem;
+  margin: 0 .3rem;
   font-family: "Open Sans";
-}
-
-body header nav ul li a i {
-  margin-right: 0.5rem;
+  font-weight: bold;
 }
 
 body header nav ul li a:hover {
@@ -180,7 +177,7 @@ body header div.container-section form.con-input b.text-mail {
 }
 
 body header div.container-section form.con-input b.text-mail i {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 body header div.container-section form.con-input span {
@@ -394,6 +391,10 @@ body section .inputs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -401,6 +402,10 @@ body section .inputs {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   max-width: 40rem;
+}
+
+body section .inputs h3 {
+  padding-top: 1rem;
 }
 
 body section .inputs form {
@@ -425,13 +430,13 @@ body section .inputs form * {
 }
 
 body section .inputs form input {
-  padding: .5rem;
-  font-size: .9rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
   outline-color: inherit;
 }
 
 body section .inputs form textarea {
-  padding: .5rem;
+  padding: 0.5rem;
   max-width: 39rem !important;
   outline-color: inherit;
   font-family: "Open Sans";
@@ -528,6 +533,9 @@ body footer .con-2 svg {
   }
   header ul {
     margin-right: 0.5rem !important;
+  }
+  header ul li a {
+    font-size: .9rem !important;
   }
   header div.container-section {
     width: 95% !important;

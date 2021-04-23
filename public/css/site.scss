@@ -15,7 +15,7 @@ body {
   div.message-alert {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: calc(100% - 2rem);
     z-index: 9;
     color: #fff;
     font-family: "Open Sans";

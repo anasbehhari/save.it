@@ -38,7 +38,6 @@ body {
     }
   }
 
-
   @keyframes rot {
     100% {
       transform: rotate(360deg);
@@ -89,13 +88,9 @@ body {
           a {
             color: inherit;
             text-decoration: none;
-            margin-left: 1.5rem;
+            margin: 0 .3rem;
             font-family: "Open Sans";
-
-            i {
-              margin-right: 0.5rem;
-            }
-
+            font-weight: bold;
             &:hover {
               text-decoration: underline;
 
@@ -139,7 +134,7 @@ body {
           display: flex;
           align-items: center;
           i {
-            margin-left: .5rem;
+            margin-left: 0.5rem;
           }
         }
         span {
@@ -229,7 +224,6 @@ body {
           h3 {
             margin: 0;
             font-family: "Open Sans";
-
             font-size: 0.9rem;
             text-align: center;
             font-weight: 500;
@@ -297,11 +291,14 @@ body {
     .inputs {
       position: relative;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       left: 50%;
       transform: translateX(-50%);
       max-width: 40rem;
-
+      h3 {
+        padding-top: 1rem;
+      }
       form {
         display: flex;
         flex-direction: column;
@@ -318,13 +315,13 @@ body {
         }
 
         input {
-          padding: .5rem;
-          font-size: .9rem;
+          padding: 0.5rem;
+          font-size: 0.9rem;
           outline-color: inherit;
         }
 
         textarea {
-          padding: .5rem;
+          padding: 0.5rem;
           max-width: 39rem !important;
           outline-color: inherit;
           font-family: "Open Sans";
@@ -406,7 +403,6 @@ body {
 @media (max-width: 50rem) {
   header {
     height: 25rem !important;
-
     div.logo-section {
       svg {
         margin-left: 0.6rem !important;
@@ -415,6 +411,11 @@ body {
 
     ul {
       margin-right: 0.5rem !important;
+      li {
+        a {
+          font-size: .9rem !important;
+        }
+      }
     }
 
     div.container-section {
