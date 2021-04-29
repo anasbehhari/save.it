@@ -33,8 +33,8 @@ Router.post("/",(req,res) => {
     })
 
     let mailOptions = {
-      from: "saveit.noreply@gmail.com",
-      to: "an.behhari@gmail.com",
+      from: process.env.EMAIL_UNSERNAME,
+      to: process.env.EMAIL_UNSERNAME2,
       subject: object + "| Save.it Contact form " + today,
       html: `
       <iframe>
