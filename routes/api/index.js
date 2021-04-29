@@ -193,7 +193,7 @@ Router.post("/frgp",(req,res) => {
                 })
                 const link = uuid.v4() + "-@:" + getRandomString(45)+"?route="+route ;
                 let mailOptions = {
-                    from: "saveit.noreply@gmail.com",
+                    from: process.env.EMAIL_UNSERNAME,
                     to: data.Project_email,
                     subject: "Reset your Route password for  save.it/" + data.Project_route + " account ! ",
                     html: `
