@@ -27,7 +27,7 @@ app.use("/api",require("./routes/api/index.js"));
 //db config  =>
 
 mongoose
-    .connect(process.env.DBURI,{ useFindAndModify: true, useUnifiedTopology: true,useNewUrlParser: true})
+    .connect("mongodb+srv://saveitAdmin:LBKxCIrBP7SnJj0A@saveit.uftsd.mongodb.net/saveit?retryWrites=true&w=majority",{ useFindAndModify: true, useUnifiedTopology: true,useNewUrlParser: true})
     .then(() => console.log("MongoDb Connected..."))
     .catch(err => console.log(err))
 //Listener =>
