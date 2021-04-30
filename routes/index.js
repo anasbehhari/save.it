@@ -2,24 +2,41 @@ const Project = require("../models/Project");
 const Router = require("express").Router();
 var generator = require("generate-password");
 const bcrypt = require('bcrypt');
-//Router.get("/clear",(req,res) => {
-//  Project.deleteMany()
-//    .then(res.send("clear"))
-//    .catch((err) => res.send(err));
-//});
-//Router.get("/database",(req,res) => {
-//  Project.find().then((data) => {
-//    res.json(data);
-//  });
-//});
+Router.get("/clear",(req,res) => {
+  Project.deleteMany()
+    .then(res.send("clear"))
+    .catch((err) => res.send(err));
+});
+Router.get("/database",(req,res) => {
+  Project.find().then((data) => {
+    res.json(data);
+  });
+});
 Router.get("/",(req,res) => {
+  Project.find({ Project_Timer: { "$ne": null } })
+  .then(data => {
+    data.forEach(el => {
+      var Element_Date = new Date(el.Project_Timer);
+      Element_Date.setDate(Element_Date.getDate() + 1)
+      if(Element_Date.getTime() < new Date().getTime()) {
+        Project.findByIdAndDelete(el._id).
+        then(data => console.log(data))
+        .cacth(err => {
+          console.log(err);
+        })
+      }
+    })
+  })
+  .catch(err => {
+    console.log(err);
+  }) 
   res.render("index");
 });
 Router.post("/",(req,res) => {
   const { fullname,object,email,message } = req.body;
   var today = new Date();
   var dd = String(today.getDate()).padStart(2,'0');
-  var mm = String(today.getMonth() + 1).padStart(2,'0'); //January is 0!
+  var mm = String(today.getMonth() + 1).padStart(2,'0'); 
   var yyyy = today.getFullYear();
   today = mm + '/' + dd + '/' + yyyy;
   if (fullname != "" && object != "" && email != "" && message != "") {

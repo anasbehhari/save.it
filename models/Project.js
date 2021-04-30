@@ -41,6 +41,10 @@ const ProjectSchema = new mongoose.Schema({
     Project_recovery : {
         type: String,
         default : ""
+    },
+    Project_Timer: {
+        type: Date,
+        default: null
     }
 })
 

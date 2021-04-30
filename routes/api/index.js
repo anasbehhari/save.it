@@ -228,7 +228,26 @@ Router.post("/frgp",(req,res) => {
                 });
             }
             else if (data && data.Project_email == "") {
-                res.send({ status: "failure",Message: "This route has no Email ! it will be deleted in 7 days " })
+                var filter = { Project_route: data.Project_route };
+                var newvalues = { $set: { Project_Timer: new Date() } };
+                if(data.Project_Timer !=null) {
+                    res.send({ status: "failure",Message: "This route has no Email ! it will be deleted in 1day " })
+                }
+                else {
+                    Project.updateOne(filter,newvalues,function (err,response) {
+                    console.log(response);
+                    if (err) {
+                        res.send({ status: "failure",Message: "something went wrong reload please 1  !" })
+                    }
+                    if (response.nModified == 1 && response.ok == 1) {
+                        res.send({ status: "failure",Message: "This route has no Email ! it will be deleted in 1day " })
+                    }
+                    else {
+                        res.send({ status: "failure",Message: "something went wrong reload please  1!" })
+                    }
+                });
+                }
+                
             }
             else {
                 res.send({ status: "failure",Message: "something went wrong   !" })

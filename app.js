@@ -27,7 +27,7 @@ app.use("/api",require("./routes/api/index.js"));
 //db config  =>
 
 mongoose
-    .connect(process.env.DB_URI,{ useFindAndModify: true, useUnifiedTopology: true,useNewUrlParser: true})
+    .connect(process.env.DBURI,{ useFindAndModify: true, useUnifiedTopology: true,useNewUrlParser: true})
     .then(() => console.log("MongoDb Connected..."))
     .catch(err => console.log(err))
 //Listener =>
