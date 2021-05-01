@@ -23,11 +23,14 @@ app.use(express.json());
 app.use("/",require("./routes/index.js"));
 app.use("/api",require("./routes/api/index.js"));
 
+app.get("*",(req,res) => {
+    res.redirect("/")
+})
 
 //db config  =>
 
 mongoose
-    .connect(process.env.DBURI,{ useFindAndModify: true, useUnifiedTopology: true,useNewUrlParser: true})
+    .connect(process.env.DBURI,{ useFindAndModify: true,useUnifiedTopology: true,useNewUrlParser: true })
     .then(() => console.log("MongoDb Connected..."))
     .catch(err => console.log(err))
 //Listener =>
