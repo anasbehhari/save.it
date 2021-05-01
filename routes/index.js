@@ -130,15 +130,16 @@ Router.get("/:id",(req,res) => {
       else if (req.params.id != null &&
         req.params.id != "" &&
         req.params.id != " " &&
-        !req.params.id.startsWith(" ") &&
+        !req.params.id.startsWith(" ") && 
         req.params.id.length > 3) {
+        
         var password = generator.generate({
           length: 10,
           numbers: true,
         });
         bcrypt.hash(password,10,function (err,hash) {
           var NewProject = new Project({
-            Project_route: `${req.params.id}`,
+            Project_route: req.params.id.replace(/[^a-zA-Z ]/g,""),
             Project_password: hash,
           });
           NewProject.save()
