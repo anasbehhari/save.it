@@ -402,7 +402,8 @@ body {
 
 @media (max-width: 50rem) {
   header {
-    height: 25rem !important;
+    height: auto !important;
+    padding-bottom: 3rem;
     div.logo-section {
       svg {
         margin-left: 0.6rem !important;

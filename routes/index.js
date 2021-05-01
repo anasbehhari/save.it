@@ -2,16 +2,7 @@ const Project = require("../models/Project");
 const Router = require("express").Router();
 var generator = require("generate-password");
 const bcrypt = require('bcrypt');
-Router.get("/clear",(req,res) => {
-  Project.deleteMany()
-    .then(res.send("clear"))
-    .catch((err) => res.send(err));
-});
-Router.get("/database",(req,res) => {
-  Project.find().then((data) => {
-    res.json(data);
-  });
-});
+
 Router.get("/",(req,res) => {
   Project.find({ Project_Timer: { "$ne": null } })
   .then(data => {
