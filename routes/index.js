@@ -187,6 +187,15 @@ Router.post("/:id",(req,res) => {
                 Encrypted: true,
                 Data: data
               }
+              if(data.Project_Timer != null) {
+                var filter = { Project_route: data.Project_route };
+                var newvalues = { $set: { Project_Timer:null} };
+                Project.updateOne(filter,newvalues , function (err,response) {
+                  if (err) {
+                    res.send({ status: "failure",Message: "something went wrong reload please   !" })
+                  }
+                })
+              }
               res.render("site",Message);
             }
             else {
