@@ -118,6 +118,7 @@ Router.get("/:id",(req,res) => {
   var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
   if (format.test(req.params.id)) {
     var route = (req.params.id).replace(/[^a-zA-Z0-9]/g,'')
+    route = route.toLocaleLowerCase()
     res.redirect("/"+route)
   } 
   else  {
