@@ -2,7 +2,6 @@ const Project = require("../models/Project");
 const Router = require("express").Router();
 var generator = require("generate-password");
 const bcrypt = require('bcrypt');
-
 Router.get("/",(req,res) => {
   Project.find({ Project_Timer: { "$ne": null } })
     .then(data => {
