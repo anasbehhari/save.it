@@ -454,7 +454,6 @@ body {
       #Editor {
         width: 100%;
         height: 100% !important;
-
         #toolbar-container {
           .ck.ck-toolbar {
             border: none;
@@ -463,11 +462,10 @@ body {
             max-width: 100%;
           }
         }
-
         #editor {
-          height: calc(100% - 4.5rem) !important;
+          height: calc(100% - 3rem) !important;
+          background-color: #fafafa;
           max-width: 100%;
-
           &.ck-focused {
             border: none !important;
           }
