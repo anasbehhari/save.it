@@ -200,7 +200,7 @@ Router.post("/frgp",(req,res) => {
                     <div>
                     <h4>Reset your Password </h4>
                        <p>
-                        In order to reset your password follow this link : <b> <a target='_blank' href="https://saveitnow.herokuapp.com/rgpsw/${link}">Click here </a></b>
+                        In order to reset your password follow this link : <b> <a target='_blank' href="https://saveit-now-2021.herokuapp.com/rgpsw/${link}">Click here </a></b>
                        </p>
 
                        <b style="color:red">Notice  : This Link only for one ! use which means as soon as you click this link be deleted ! </b>
